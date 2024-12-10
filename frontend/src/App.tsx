@@ -1,21 +1,17 @@
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router";
+import HomePage from "./pages/HomePage";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
-    <>
-      <header>
-        <nav></nav>
-        <section></section>
-      </header>
-
-      <nav></nav>
-      <main>
-        <section className="orgs">Orgs</section>
-        <section className="Categories">Categories Link</section>
-      </main>
-
-      <footer>Footer</footer>
-    </>
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

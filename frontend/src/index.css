@@ -46,6 +46,12 @@ body {
   color: var(--color-default-text);
   font-weight: 200;
   line-height: 1.43;
+}
+
+.app {
+  padding: 2rem 4rem;
+  margin: 0;
+  background-color: red;
 
   min-height: 100vh;
 }
