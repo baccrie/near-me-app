@@ -1,10 +1,6 @@
+import Search from "../assets/search.svg";
+import styles from "./SearchBar.module.css";
+
 export default function SearchBar() {
-  return (
-    <div className="search-box">
-      <input type="search" />
-      <div className="search-icon">
-        <img src="" alt="icon" />
-      </div>
-    </div>
-  );
+  return null;
 }

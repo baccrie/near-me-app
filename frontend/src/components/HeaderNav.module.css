@@ -1,0 +1,186 @@
+/* The parent */
+.headerNav {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  line-height: 2.02rem;
+  word-spacing: 0;
+  color: inherit;
+  height: 80px;
+  max-width: 252rem;
+  padding: 0px 40px 0px 40px;
+
+  border-bottom: 1px solid #dddddd;
+}
+
+/* // direct child */
+/* Logo */
+.logo {
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo src {
+  width: 3rem;
+}
+
+.logo span {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-left: -5px;
+}
+
+/* Options */
+
+.options {
+  flex-basis: 21%;
+  text-align: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.options button {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  line-height: inherit;
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10rem;
+
+  transition: all 0.3s;
+}
+
+.options button:last-child:hover {
+  font-weight: 300;
+  background-color: var(--color-grey-1);
+}
+
+.options button:first-child span {
+  font-weight: 550;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+}
+/* cta */
+.cta {
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cta a:link,
+.cta a:visited {
+  text-decoration: none;
+  font-weight: 500;
+  color: inherit;
+  padding: 1rem;
+  border-radius: 10rem;
+  font-size: 1.2rem;
+
+  transition: all 0.3s;
+}
+
+.cta a:hover,
+.cta a:active {
+  background-color: var(--color-grey-1);
+}
+
+.cta button {
+  background-color: transparent;
+  border: none;
+}
+
+.cta button img {
+  width: 1.5rem;
+}
+
+.cta button:nth-child(2) {
+  transition: all 0.2s;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta button:nth-child(2):hover {
+  background-color: var(--color-grey-1);
+}
+
+.cta > * {
+  margin-right: 2rem;
+}
+
+.cta :last-child {
+  margin-right: 0;
+}
+
+.cta button:last-child {
+  padding: 1.2rem 1rem 1.2rem 1.5rem;
+  border: 1px solid var(--color-grey-1);
+  border-radius: 5rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: all 0.3s;
+}
+
+.cta button:last-child:hover {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px 0px;
+}
+
+.cta button:last-child img {
+  width: 3rem;
+  display: block;
+  border-radius: 50%;
+  border: 1px solid none;
+}
+.cta p {
+  background-color: #222222;
+  width: 1.4rem;
+  height: 1.5px;
+  margin-right: 1.5rem;
+
+  position: relative;
+}
+
+.cta p::after,
+.cta p::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-text-default);
+  width: 1.4rem;
+  height: 1.5px;
+
+  left: 0;
+}
+
+.cta p::before {
+  transform: translateY(-4px);
+}
+
+.cta p::after {
+  transform: translateY(4px);
+}

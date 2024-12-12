@@ -1,0 +1,88 @@
+.mainNav {
+  padding: 2rem;
+
+  margin-bottom: 10rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.mainNav ul {
+  display: flex;
+  list-style: none;
+  overflow: hidden auto;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  color: var(--color-text-1);
+
+  width: 75%;
+  justify-content: space-between;
+}
+
+.mainNav ul li {
+  font-size: 10px;
+  padding: 1rem 2rem;
+  font-weight: 400;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: all 0.2s;
+}
+
+.mainNav ul li:hover span {
+  transition: all 0.2s;
+}
+.mainNav ul li:hover span {
+  border-bottom: 2px solid #dddddd;
+}
+
+.mainNav ul li img {
+  width: 20px;
+  margin-bottom: 1rem;
+}
+
+.filterBox {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 2rem;
+
+  flex-grow: 1;
+  margin-right: auto;
+}
+
+.filters,
+.toggle {
+  padding: 1rem 1.5rem;
+  border-radius: 1.2rem;
+  border: 2px solid red;
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  border: 1px solid var(--color-grey-1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: all 0.3s;
+}
+
+.filters:hover,
+.toggle:hover {
+  background-color: var(--color-grey-2);
+  border: 1px solid #000;
+}
+
+.filters img {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.toggle {
+  margin-left: 1rem;
+}
