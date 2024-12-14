@@ -70,6 +70,7 @@
 .mainNav ul li:hover {
   color: #000;
   font-weight: 600;
+  scale: 1.1;
 }
 
 .mainNav ul li span {

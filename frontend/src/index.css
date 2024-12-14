@@ -55,4 +55,6 @@ body {
 .app {
   background-color: #fff;
   min-height: 100vh;
+  max-width: 1800px;
+  margin: auto;
 }
