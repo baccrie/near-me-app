@@ -15,21 +15,65 @@
   font-weight: 500;
   line-height: 1.6rem;
   color: var(--color-text-1);
+  position: relative;
 
   width: 75%;
   justify-content: space-between;
 }
 
+.prevBtn,
+.nextBtn {
+  border: none;
+  top: 40%;
+  transform: translateY(-50%);
+  border: 2px solid #dddddd;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 100;
+
+  position: absolute;
+}
+
+.prevBtn img,
+.nextBtn img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
+  scale: 1.05;
+}
+
+.nextBtn {
+  right: 0;
+}
+
 .mainNav ul li {
   font-size: 1rem;
   padding: 1rem 2rem;
-  font-weight: 400;
+  font-weight: 600;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
   transition: all 0.2s;
+}
+
+.mainNav ul li:hover {
+  color: #000;
+  font-weight: 600;
+}
+
+.mainNav ul li span {
+  border-bottom: 2px solid transparent;
 }
 
 .mainNav ul li:hover span {
@@ -56,7 +100,7 @@
 
 .filters,
 .toggle {
-  padding: 1rem 1.5rem;
+  padding: 1.4rem 1.5rem;
   border-radius: 1.2rem;
   border: 2px solid red;
   font-size: 1.2rem;
@@ -82,12 +126,10 @@
 .filters img {
   width: 1.5rem;
   margin-right: 0.5rem;
-  :red ;
 }
 
 .toggle {
   margin-left: 1rem;
-  padding: 1.2rem 1.5rem;
   display: flex;
 }
 
@@ -96,16 +138,15 @@
 }
 
 .toggleContainer {
-  width: 4rem;
-  height: 2.2rem;
-  background-color: red;
-  /* padding-left: 5px; */
-  border-radius: 1rem;
+  width: 3.6rem;
+  height: 2.4rem;
+  background-color: rgb(247, 247, 247);
+  border-radius: 1.2rem;
   position: relative;
 }
 
 .toggleContainer div {
-  background-color: gold;
+  background-color: #000;
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 50%;
@@ -119,5 +160,4 @@
 
 .toggleContainer div:hover {
   transform: translate(85%, -50%);
-  background-color: gold;
 }

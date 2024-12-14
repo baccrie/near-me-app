@@ -1,5 +1,7 @@
 import World from "../assets/world.svg";
 import styles from "./MainNav.module.css";
+import Next from "../assets/next.svg";
+import Prev from "../assets/back.svg";
 
 export default function MainNav() {
   return (
@@ -81,6 +83,12 @@ export default function MainNav() {
           <img src={World} />
           <span>Beachfront</span>
         </li>
+        <button className={styles.nextBtn}>
+          <img src={Next} />
+        </button>
+        <button className={styles.prevBtn}>
+          <img src={Prev} alt="prev" />
+        </button>
       </ul>
 
       <div className={styles.filterBox}>
