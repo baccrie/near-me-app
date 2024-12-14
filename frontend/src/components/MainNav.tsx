@@ -92,7 +92,7 @@ export default function MainNav() {
         <div className={styles.toggle}>
           <span>Display total before taxes</span>
           <div className={styles.toggleContainer}>
-            <div className="circle"></div>
+            <div className="circle">&nbsp;</div>
           </div>
         </div>
       </div>
