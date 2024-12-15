@@ -3,8 +3,16 @@ import World from "../assets/world.svg";
 import { Link } from "react-router";
 import User from "../assets/user.svg";
 import Logo from "../assets/logo.svg";
+import { useState } from "react";
 
 export default function HeaderNav() {
+  const [isOpen, setisOpen] = useState(false);
+
+  function toggleDropdownMenu(e) {
+    e.preventDefault();
+    setisOpen((isOpen) => !isOpen);
+  }
+
   return (
     <div className={styles.headerNav}>
       <div className={styles.logo}>
@@ -23,16 +31,30 @@ export default function HeaderNav() {
 
       <div className={styles.cta}>
         <Link to="#" aria-label="Find locations near your home">
-          Near me your home
+          Near me your org
         </Link>
         <button aria-label="Select language">
           <img src={World} alt="Language selection" />
         </button>
-        <button aria-label="User menu">
+
+        <button aria-label="User menu" onClick={toggleDropdownMenu}>
           <p className={styles.userName}></p>
           <img src={User} alt="User profile" />
         </button>
       </div>
+
+      {isOpen && (
+        <div className={styles.ctaMenu}>
+          <ul>
+            <li>Signup</li>
+            <li>login</li>
+            <li>forgot password</li>
+            <li>Near me ur org</li>
+            <li>Help center</li>
+            <li>lock acc</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
