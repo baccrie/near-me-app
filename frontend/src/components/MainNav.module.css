@@ -1,7 +1,9 @@
 .mainNav {
   padding: 2rem 4rem;
 
-  margin-bottom: 10rem;
+  /* margin-bottom: 10rem; */
+
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -10,12 +12,14 @@
 .mainNav ul {
   display: flex;
   list-style: none;
-  overflow: hidden auto;
+  overflow: hidden;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.6rem;
   color: var(--color-text-1);
-  position: relative;
 
   width: 75%;
   justify-content: space-between;
@@ -51,7 +55,7 @@
 }
 
 .nextBtn {
-  right: 0;
+  left: 75%;
 }
 
 .mainNav ul li {
@@ -75,6 +79,7 @@
 
 .mainNav ul li span {
   border-bottom: 2px solid transparent;
+  padding-bottom: 10px;
 }
 
 .mainNav ul li:hover span {

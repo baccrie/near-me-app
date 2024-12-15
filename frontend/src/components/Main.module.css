@@ -1,0 +1,13 @@
+.container {
+  width: 27rem;
+}
+
+.imgContainer {
+  border-radius: 20px;
+  background-size: contain;
+  overflow: hidden;
+}
+.imgContainer img {
+  width: 100%;
+  height: 25rem;
+}

@@ -2,6 +2,7 @@
 .headerNav {
   display: flex;
   align-items: center;
+
   font-size: 1.4rem;
   line-height: 2.02rem;
   word-spacing: 0;
@@ -16,8 +17,7 @@
 /* // direct child */
 /* Logo */
 .logo {
-  flex-grow: 1;
-
+  flex-basis: 30%;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -37,23 +37,21 @@
 /* Options */
 
 .options {
-  flex-basis: 21%;
+  flex-grow: 1;
   text-align: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  font-size: 1.6rem;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
   line-height: 2.4rem;
 
   display: flex;
   text-align: center;
   justify-content: center;
-  gap: 3rem;
 }
 
 .options button {
-  font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
+  font-size: 1.5rem;
   color: inherit;
   outline: none;
   border: none;
@@ -74,11 +72,10 @@
 .options button:first-child span {
   font-weight: 550;
   line-height: 2.4rem;
-  font-size: 1.6rem;
 }
 /* cta */
 .cta {
-  flex-grow: 1;
+  flex-basis: 40%;
 
   display: flex;
   align-items: center;

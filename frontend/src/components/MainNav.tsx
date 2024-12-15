@@ -3,10 +3,24 @@ import styles from "./MainNav.module.css";
 import Next from "../assets/next.svg";
 import Prev from "../assets/back.svg";
 
+import { useRef } from "react";
+
 export default function MainNav() {
+  const navEl = useRef(null);
+
+  const scrollExtent = 200;
+
+  const handleScroll = (direction) => {
+    console.log("works");
+    if (navEl.current) {
+      const scrollValue = direction === "left" ? -scrollExtent : scrollExtent;
+      navEl.current.scrollBy({ left: scrollValue, behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className={styles.mainNav}>
-      <ul>
+      <ul ref={navEl}>
         <li>
           <img src={World} />
           <span>Beachfront</span>
@@ -83,10 +97,13 @@ export default function MainNav() {
           <img src={World} />
           <span>Beachfront</span>
         </li>
-        <button className={styles.nextBtn}>
+        <button
+          className={styles.nextBtn}
+          onClick={() => handleScroll("right")}
+        >
           <img src={Next} />
         </button>
-        <button className={styles.prevBtn}>
+        <button className={styles.prevBtn} onClick={() => handleScroll("left")}>
           <img src={Prev} alt="prev" />
         </button>
       </ul>
