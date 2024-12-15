@@ -1,5 +1,14 @@
-.container {
-  width: 27rem;
+.buisness {
+  padding: 0rem 4rem;
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.buisnessCard {
+  width: 25rem;
 }
 
 .imgContainer {
@@ -8,6 +17,18 @@
   overflow: hidden;
 }
 .imgContainer img {
-  width: 100%;
+  width: auto;
   height: 25rem;
+}
+
+/* buisness details */
+.buisnessDetails {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buisnessSummary p {
+  font-weight: 500;
 }

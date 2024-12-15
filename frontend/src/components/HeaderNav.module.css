@@ -27,9 +27,9 @@
   width: 3rem;
 }
 
-.logo span {
-  font-size: 1.8rem;
-  font-weight: 700;
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
   color: var(--color-primary);
   margin-left: -5px;
 }

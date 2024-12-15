@@ -9,7 +9,7 @@ export default function HeaderNav() {
     <div className={styles.headerNav}>
       <div className={styles.logo}>
         <img src={Logo} alt="Website Logo" />
-        <span>near ME</span>
+        <h1>near ME</h1>
       </div>
 
       <nav className={styles.options}>
