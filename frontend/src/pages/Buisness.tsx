@@ -3,6 +3,9 @@ import HeaderNav from "../components/HeaderNav";
 import styles from "./Buisness.module.css";
 import Share from "../assets/share.svg";
 import Save from "../assets/save.svg";
+import FavouriteLeft from "../assets/favourite-left.svg";
+import FavouriteRight from "../assets/favourite-right.svg";
+import Star from "../assets/star.svg";
 
 export default function () {
   return (
@@ -47,7 +50,39 @@ export default function () {
 
         <section className={styles.org}>
           <div className={styles.details}>
-            <div className={styles.mainContent}></div>
+            <div className={styles.mainContent}>
+              <header className={styles.contentHeader}>
+                <h2 className={styles.mainContentHeader}>
+                  Entire Villa in Ponta Do Sol, Portugal
+                </h2>
+                <span>8 guests .4 bedrooms .7 beds .4 bath</span>
+              </header>
+
+              <div className={styles.reviewSummary}>
+                <span className={styles.title}>
+                  <img src={FavouriteLeft} />
+                  Guest
+                  <img src={FavouriteRight} />
+                </span>
+                <span className={styles.summary}>
+                  One of the most love places on near according to guest
+                </span>
+                <div className={styles.ratings}>
+                  <span>4.96</span>
+                  <div className={styles.stars}>
+                    <img src={Star} />
+                    <img src={Star} />
+                    <img src={Star} />
+                    <img src={Star} />
+                    <img src={Star} />
+                  </div>
+                </div>
+                <div className={styles.reviews}>
+                  <span>109</span>
+                  <span>Reviews</span>
+                </div>
+              </div>
+            </div>
             <aside className={styles.sidebar}></aside>
           </div>
         </section>

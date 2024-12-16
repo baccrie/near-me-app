@@ -13,12 +13,15 @@
 
 .imgContainer {
   border-radius: 20px;
-  background-size: contain;
+  height: 25rem;
+
   overflow: hidden;
 }
+
 .imgContainer img {
-  width: auto;
-  height: 25rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* buisness details */
