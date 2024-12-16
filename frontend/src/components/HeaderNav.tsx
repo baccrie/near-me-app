@@ -5,7 +5,7 @@ import User from "../assets/user.svg";
 import Logo from "../assets/logo.svg";
 import { useRef, useState } from "react";
 
-export default function HeaderNav() {
+export default function HeaderNav({ type }) {
   const [isOpen, setisOpen] = useState(false);
   const ctaBtn = useRef();
 
@@ -16,7 +16,11 @@ export default function HeaderNav() {
   }
 
   return (
-    <div className={styles.headerNav}>
+    <div
+      className={`${styles.headerNav} ${
+        type === "smaller" ? styles.smallerHeader : ""
+      }`}
+    >
       <div className={styles.logo}>
         <img src={Logo} alt="Website Logo" />
         <h1>near ME</h1>

@@ -1,0 +1,77 @@
+/* Main */
+.main {
+  padding: 2rem 35rem 2rem 35rem;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.header .shareAndSave {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.header .shareAndSave > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .shareAndSave > * img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Gallery section */
+
+.gallery {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  height: 60vh;
+}
+
+.mainImage {
+  flex: 1;
+  height: 100%;
+}
+
+.mainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.otherImages {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 10px;
+}
+
+.otherImages .photo {
+  flex: 1 1 calc(50% - 5px);
+  height: calc(50% - 5px);
+}
+
+.otherImages .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

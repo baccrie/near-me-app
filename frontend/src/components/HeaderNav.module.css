@@ -9,7 +9,6 @@
   word-spacing: 0;
   color: inherit;
   height: 80px;
-  max-width: 252rem;
   padding: 0px 40px 0px 40px;
 
   border-bottom: 1px solid var(--color-grey-1);
@@ -205,4 +204,9 @@
 
 .ctaMenu li:not(:last-child) {
   padding-bottom: 2rem;
+}
+
+/* special class for modifyiing the header padding */
+.smallerHeader {
+  padding: 0px 35rem 0px 35rem;
 }
