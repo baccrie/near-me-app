@@ -2,13 +2,13 @@
   padding: 0rem 4rem;
 
   display: flex;
-  justify-content: flex-start;
-  gap: 1.4rem;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .buisnessCard {
   width: 25rem;
+  margin-bottom: 20px;
 }
 
 .imgContainer {
@@ -24,11 +24,36 @@
 /* buisness details */
 .buisnessDetails {
   margin-top: 1rem;
-  padding: 1rem;
+
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
 }
 
+.buisnessSummary {
+  font-size: 1.2rem;
+  width: 70%;
+  overflow: hidden;
+}
+
 .buisnessSummary p {
   font-weight: 500;
+}
+
+.buisnessSummary > * {
+  margin-bottom: 0.5rem;
+}
+
+.buisnessSummary span {
+  display: block;
+}
+
+.buisnessSummary h3 {
+  font-weight: 500;
+}
+
+.buisnessSummary span {
+  color: var(--color-default);
+  font-weight: 300;
+  font-size: 1.3rem;
 }

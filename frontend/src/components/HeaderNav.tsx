@@ -3,13 +3,15 @@ import World from "../assets/world.svg";
 import { Link } from "react-router";
 import User from "../assets/user.svg";
 import Logo from "../assets/logo.svg";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function HeaderNav() {
   const [isOpen, setisOpen] = useState(false);
+  const ctaBtn = useRef();
 
   function toggleDropdownMenu(e) {
     e.preventDefault();
+
     setisOpen((isOpen) => !isOpen);
   }
 
@@ -37,7 +39,11 @@ export default function HeaderNav() {
           <img src={World} alt="Language selection" />
         </button>
 
-        <button aria-label="User menu" onClick={toggleDropdownMenu}>
+        <button
+          aria-label="User menu"
+          ref={ctaBtn}
+          onClick={toggleDropdownMenu}
+        >
           <p className={styles.userName}></p>
           <img src={User} alt="User profile" />
         </button>
