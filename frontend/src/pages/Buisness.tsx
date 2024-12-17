@@ -6,6 +6,9 @@ import Save from "../assets/save.svg";
 import FavouriteLeft from "../assets/favourite-left.svg";
 import FavouriteRight from "../assets/favourite-right.svg";
 import Star from "../assets/star.svg";
+import Park from "../assets/park.svg";
+import Outdoor from "../assets/outdoor.svg";
+import Ocean from "../assets/ocean.svg";
 
 export default function () {
   return (
@@ -49,7 +52,7 @@ export default function () {
         </section>
 
         <section className={styles.org}>
-          <div className={styles.details}>
+          <div className={styles.orgDetails}>
             <div className={styles.mainContent}>
               <header className={styles.contentHeader}>
                 <h2 className={styles.mainContentHeader}>
@@ -85,8 +88,74 @@ export default function () {
                   <span>Reviews</span>
                 </div>
               </div>
+
+              <div className={styles.host}>
+                <div className={styles.hostImg}>
+                  <img src="/test.webp" />
+                </div>
+
+                <div className={styles.hostDetails}>
+                  <span>Hosted by Bakare</span>
+                  <span>SuperHost 1 year hosting</span>
+                </div>
+              </div>
+
+              <div className={styles.amenities}>
+                <ul>
+                  <li>
+                    <img src={Save} />
+                    <div className={styles.amenitiesName}>
+                      <span>Room in a home</span>
+                      <span>
+                        Your own room in a home plus access to shared spaces
+                      </span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <img src={Ocean} />
+                    <div className={styles.amenitiesName}>
+                      <span>Shared common spaces</span>
+                      <span>You will share part of the home</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <img src={Park} />
+                    <div className={styles.amenitiesName}>
+                      <span>Private attached bathroom</span>
+                      <span>
+                        This place has a bathroom thats connected to your room
+                      </span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <img src={Outdoor} />
+                    <div className={styles.amenitiesName}>
+                      <span>Fast wifi</span>
+                      <span>
+                        At 95mbps you can take video calls and stream videos
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <aside className={styles.sidebar}></aside>
+
+            <aside className={styles.sidebar}>
+              <h1>Add dates for prices</h1>
+              <div className={styles.datePicker}>
+                <div className={styles.check}>
+                  <button className={styles.checkIn}>
+                    <span>check out</span>
+                    <span></span>
+                  </button>
+                  <button className={styles.checkOut}></button>
+                </div>
+                <div className={styles.guest}></div>
+              </div>
+            </aside>
           </div>
         </section>
 
