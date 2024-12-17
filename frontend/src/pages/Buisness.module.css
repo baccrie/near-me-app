@@ -277,3 +277,51 @@
   font-size: 1.2rem;
   color: var(--color-text-1);
 }
+
+/* aside */
+.sidebar {
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-left: 40px;
+  padding: 2rem;
+  border-radius: 2rem;
+  /* Delete the margin later */
+}
+
+.sidebar h3 {
+  font-weight: 500;
+}
+
+.datePicker {
+}
+
+.check {
+  display: flex;
+}
+
+.check button {
+  text-align: left;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  flex-basis: 50%;
+}
+
+.submitReservation {
+  width: 100%;
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  border: none;
+  color: #fff;
+
+  background-image: radial-gradient(
+    circle,
+    rgb(255, 56, 92) 0%,
+    rgb(230, 30, 77) 27.5%,
+    rgb(227, 28, 95) 40%,
+    rgb(215, 4, 102) 57.5%,
+    rgb(189, 30, 89) 75%,
+    rgb(189, 30, 89) 100%
+  );
+}

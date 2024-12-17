@@ -32,18 +32,18 @@ export default function () {
 
         <section className={styles.gallery}>
           <div className={styles.mainImage}>
-            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-977994569481876996/original/9c30f2a0-e953-4550-a1d8-67ad0e9496aa.jpeg?im_w=1200&im_format=avif" />
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1115281353322610945/original/c6a8f01a-c033-40aa-9b04-4d1118b9d65e.jpeg?im_w=1200&im_format=avif" />
           </div>
 
           <div className={styles.otherImages}>
             <div className={styles.photo}>
-              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-977994569481876996/original/a25b469e-5145-435f-a3c5-9da1fe50cf9d.jpeg?im_w=1200&im_format=avif" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1115281353322610945/original/cb1e38e3-f594-466d-8e26-62d81e38f631.jpeg?im_w=720&im_format=avif" />
             </div>
             <div className={styles.photo}>
-              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-977994569481876996/original/361ed694-e8cb-4a27-804e-31b2537abe15.jpeg?im_w=1200&im_format=avif" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1115281353322610945/original/ff63749c-aecd-4bf2-9fdb-03ba5003d90d.jpeg?im_w=720&im_format=avif" />
             </div>
             <div className={styles.photo}>
-              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-977994569481876996/original/0adc077e-73ab-4576-8389-54ccb1bbe8fd.jpeg?im_w=1200&im_format=avif" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1115281353322610945/original/c01d8041-f1d4-4e11-81dd-9f8d2dffcadb.jpeg?im_w=720&im_format=avif" />
             </div>
             <div className={styles.photo}>
               <img src="https://a0.muscache.com/im/pictures/miso/Hosting-977994569481876996/original/67b41d11-8bc9-45dd-b633-5af5e51ab0ce.jpeg?im_w=720&im_format=avif" />
@@ -144,17 +144,31 @@ export default function () {
             </div>
 
             <aside className={styles.sidebar}>
-              <h1>Add dates for prices</h1>
-              <div className={styles.datePicker}>
+              <h3>$650</h3>
+
+              <form className={styles.datePicker}>
                 <div className={styles.check}>
                   <button className={styles.checkIn}>
-                    <span>check out</span>
-                    <span></span>
+                    <span>check-in</span>
+                    <span>12/18/2024</span>
                   </button>
-                  <button className={styles.checkOut}></button>
+                  <button className={styles.checkOut}>
+                    <span>check-out</span>
+                    <span>12/18/2024</span>
+                  </button>
                 </div>
-                <div className={styles.guest}></div>
-              </div>
+
+                <div className={styles.dropDown}>
+                  <div className={styles.picker}>
+                    <span>Guests</span>
+                    <span>3 guests</span>
+                  </div>
+
+                  <img />
+                </div>
+
+                <button className={styles.submitReservation}>Reserve</button>
+              </form>
             </aside>
           </div>
         </section>
