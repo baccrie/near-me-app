@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage";
 import PageNotFound from "./pages/PageNotFound";
-import Buisness from "./pages/Buisness";
+import Locale from "./pages/Locale";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<HomePage />} />
-          <Route path="org/:id" element={<Buisness />} />
+          <Route path="locale/:id" element={<Locale />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

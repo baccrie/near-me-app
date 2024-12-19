@@ -1,0 +1,54 @@
+/* Gallery section */
+
+.gallery {
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  height: 50vh;
+}
+
+.mainImage {
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+
+  transition: all 0.5s;
+}
+
+.mainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mainImage:hover {
+  scale: 1.02;
+}
+
+.otherImages {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.otherImages .photo {
+  flex: 1 1 calc(50% - 5px);
+  height: calc(50% - 5px);
+
+  transition: all 0.5s;
+}
+
+.otherImages .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.otherImages .photo:hover {
+  scale: 1.02;
+}

@@ -1,0 +1,33 @@
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.header .shareAndSave {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.header .shareAndSave > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .shareAndSave > * img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
