@@ -1,5 +1,5 @@
 .mainNav {
-  padding: 2rem 4rem;
+  padding: 2rem 6rem;
 
   /* margin-bottom: 10rem; */
 
@@ -28,9 +28,9 @@
 .prevBtn,
 .nextBtn {
   border: none;
-  top: 40%;
+  top: 45%;
   transform: translateY(-50%);
-  border: 2px solid #dddddd;
+  border: 1px solid #dddddd;
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 50%;
@@ -55,13 +55,21 @@
 }
 
 .nextBtn {
-  left: 75%;
+  left: 74%;
 }
 
-.mainNav ul li {
-  font-size: 1rem;
+.mainNav ul li a:link,
+.mainNav ul li a:visited {
+  text-decoration: none;
+  border: none;
+  outline: none;
+
+  color: inherit;
+
+  display: block;
+  font-size: 1.1rem;
   padding: 1rem 2rem;
-  font-weight: 600;
+  font-weight: 500;
 
   display: flex;
   flex-direction: column;
@@ -71,9 +79,9 @@
   transition: all 0.2s;
 }
 
-.mainNav ul li:hover {
+.mainNav ul li a:hover,
+.mainNav ul li a:active {
   color: #000;
-  font-weight: 600;
   scale: 1.1;
 }
 
@@ -97,9 +105,9 @@
 .filterBox {
   display: flex;
   justify-content: flex-end;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   align-items: center;
-
+  margin-bottom: 10px;
   flex-grow: 1;
   margin-right: auto;
 }
@@ -108,7 +116,7 @@
 .toggle {
   padding: 1.4rem 1.5rem;
   border-radius: 1.2rem;
-  border: 2px solid red;
+
   font-size: 1.2rem;
   font-weight: 500;
 
@@ -117,9 +125,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   cursor: pointer;
-
   transition: all 0.3s;
 }
 
@@ -146,24 +152,35 @@
 .toggleContainer {
   width: 3.6rem;
   height: 2.4rem;
-  background-color: rgb(247, 247, 247);
+
+  background-color: #6a6a6a;
   border-radius: 1.2rem;
   position: relative;
+  transition: all 0.2s;
 }
 
 .toggleContainer div {
-  background-color: #000;
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.6rem;
+  height: 1.6rem;
   border-radius: 50%;
 
+  background-color: #ffffff;
   position: absolute;
   top: 50%;
-  left: 0.7rem;
+  left: 0.5rem;
   transform: translateY(-50%);
   transition: all 0.5s;
 }
 
-.toggleContainer div:hover {
+.toggleContainer:hover {
+  background-color: #000;
+}
+
+.toggleContainer:hover div {
   transform: translate(85%, -50%);
+}
+
+/* active class */
+.active {
+  border-bottom: 2px solid #000;
 }
