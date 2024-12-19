@@ -1,6 +1,6 @@
 import styles from "./HeaderNav.module.css";
 import World from "../assets/world.svg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import User from "../assets/user.svg";
 import Logo from "../assets/logo.svg";
 import { useRef, useState } from "react";
@@ -21,17 +21,18 @@ export default function HeaderNav({ type }) {
         type === "smaller" ? styles.smallerHeader : ""
       }`}
     >
-      <div className={styles.logo}>
+      <Link to="/" className={styles.logo}>
         <img src={Logo} alt="Website Logo" />
         <h1>near ME</h1>
-      </div>
+      </Link>
 
       <nav className={styles.options}>
         <button aria-label="Find stays">
-          <span>Stays</span>
+          <span>Discover</span>
         </button>
+
         <button aria-label="Explore experiences">
-          <span>Experiences</span>
+          <span>Saved Places</span>
         </button>
       </nav>
 
