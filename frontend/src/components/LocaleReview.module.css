@@ -1,0 +1,62 @@
+/* .review Statement */
+.reviewStatement {
+  border-top: 1px solid var(--color-grey-1);
+  border-bottom: 1px solid var(--color-grey-1);
+
+  padding: 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.reviewStatement ul {
+  padding-bottom: 2rem;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  column-gap: 15%;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userDetails span {
+}
+
+.reviewStatement ul li {
+  font-size: 1rem;
+  flex-basis: 40%;
+}
+
+.reviewStatement ul li header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.reviewStatement ul li header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.reviewStatement ul li header span {
+}
+
+.reviewStatement ul li span {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.reviewStatement ul li .reviewText span {
+  font-weight: 400;
+}
+
+.reviewStatement button {
+  border: none;
+}
