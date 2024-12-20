@@ -29,10 +29,10 @@
   transform: translateX(-50%);
 }
 
-/* .visible {
+.visible {
   visibility: hidden;
   opacity: 0;
-} */
+}
 
 .header {
   padding: 1.5rem 2rem;
