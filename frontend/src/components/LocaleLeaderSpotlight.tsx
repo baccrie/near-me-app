@@ -1,5 +1,6 @@
 import styles from "./LocaleLeaderSpotlight.module.css";
 import Star from "../assets/star.svg";
+import Button from "./Button";
 
 export default function LocaleLeaderSpotlight() {
   return (
@@ -50,7 +51,7 @@ export default function LocaleLeaderSpotlight() {
           <span className={styles.response}>Response rates 100%</span>
           <span className={styles.response}>Responds within an hour</span>
 
-          <button>Message Host</button>
+          <Button>Message Host</Button>
         </div>
       </div>
     </section>

@@ -55,7 +55,11 @@ export default function HeaderNav({ type }) {
       </div>
 
       {isOpen && (
-        <div className={styles.ctaMenu}>
+        <div
+          className={`${styles.ctaMenu} ${
+            type === "smaller" ? styles.smallerHeaderDropdown : ""
+          }`}
+        >
           <ul>
             <li>Signup</li>
             <li>login</li>

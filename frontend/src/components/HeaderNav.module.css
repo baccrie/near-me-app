@@ -200,7 +200,7 @@
 .ctaMenu {
   width: 22rem;
   position: absolute;
-  right: 4rem;
+  right: 6rem;
   top: 7rem;
   z-index: 200;
 }
@@ -224,4 +224,8 @@
 /* special class for modifyiing the header padding */
 .smallerHeader {
   padding: 0px 35rem 0px 35rem;
+}
+
+.smallerHeaderDropdown {
+  right: 35rem;
 }

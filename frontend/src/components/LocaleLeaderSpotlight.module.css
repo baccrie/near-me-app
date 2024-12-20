@@ -121,14 +121,3 @@
 .otherDetails span:last-child {
   background-color: red;
 }
-
-.otherDetails button {
-  background-color: black;
-  border: none;
-  padding: 1.5rem 3rem;
-  color: #fff;
-  border-radius: 1rem;
-  font-family: inherit;
-  font-size: 1.6rem;
-  font-weight: 500;
-}
