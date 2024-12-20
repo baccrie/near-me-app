@@ -61,9 +61,9 @@ export default function HeaderNav({ type }) {
           }`}
         >
           <ul>
-            <li>Signup</li>
-            <li>login</li>
-            <li>forgot password</li>
+            <li>Sign up</li>
+            <li>Login</li>
+            <li>Forgot password</li>
             <li>Near me ur org</li>
             <li>Help center</li>
             <li>lock acc</li>

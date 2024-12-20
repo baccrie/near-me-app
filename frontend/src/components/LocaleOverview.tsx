@@ -13,6 +13,7 @@ import Wifi from "../assets/wifi.svg";
 import Tv from "../assets/tv.svg";
 import Camera from "../assets/cameras.svg";
 import Alarm from "../assets/alarm.svg";
+import Spinner from "./Spinner";
 
 export default function LocaleOverview() {
   return (
@@ -203,7 +204,10 @@ export default function LocaleOverview() {
           </div> */}
             </div>
 
-            <button className={styles.submitReservation}>Reserve</button>
+            <button className={styles.submitReservation}>
+              Reserve
+              <Spinner />
+            </button>
           </form>
 
           <p className={styles.warning}>You won't be charged yet</p>

@@ -1,8 +1,9 @@
 import HeaderNav from "../components/HeaderNav";
-import SearchBar from "../components/SearchBar";
 import MainNav from "../components/MainNav";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
+import LoginAndRegister from "../components/LoginAndRegister";
+import { useState } from "react";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,8 @@ export default function HomePage() {
       <footer>
         <Footer />
       </footer>
+
+      <LoginAndRegister />
     </>
   );
 }

@@ -1,0 +1,146 @@
+.wrapper {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100vh;
+  z-index: 300;
+  background-color: rgba(1, 1, 1, 0.5);
+
+  transition: all 0.2s;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 10rem;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+
+  width: 50rem;
+  height: 55rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transform: translateX(-50%);
+}
+
+/* .visible {
+  visibility: hidden;
+  opacity: 0;
+} */
+
+.header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--color-grey-1);
+  display: flex;
+  align-items: center;
+}
+
+.header button {
+  background-color: transparent;
+  border: none;
+  color: var(--color-text-1);
+
+  line-height: 1;
+  font-size: 2rem;
+  flex-basis: 30px;
+}
+
+.header h4 {
+  flex-grow: 1;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.container h3 {
+  margin: 2rem 0rem;
+  font-weight: 500;
+  font-size: 1.8rem;
+  padding-left: 2rem;
+}
+
+.form {
+  padding: 0rem 0rem 2rem 0rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid var(--color-grey-1);
+  margin-bottom: 2rem;
+}
+
+.form input {
+  width: 100%;
+  padding: 1.4rem 1rem;
+  border: 1px solid #6a6a6a;
+  font-size: 1.6rem;
+}
+
+.form input:first-child {
+  border-radius: 1rem 1rem 0rem 0;
+  border-bottom: none;
+}
+
+.form input:nth-child(2) {
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.form span {
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.submit {
+  width: 100%;
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  border: none;
+  color: #fff;
+  border-radius: 0.8rem;
+  font-family: inherit;
+  margin-bottom: 1rem;
+
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 56, 92) 0%,
+    rgb(245, 40, 85) 25%,
+    rgb(230, 30, 77) 50%,
+    rgb(215, 20, 100) 75%,
+    rgb(189, 30, 89) 100%
+  );
+}
+.container ul {
+  list-style-type: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.container ul li {
+  border: 1px solid #222222;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 1.5rem;
+
+  display: flex;
+}
+
+.container ul li img {
+  width: 20px;
+  height: 20px;
+
+  flex-basis: 30px;
+}
+
+.container ul li span {
+  flex-grow: 1;
+  text-align: center;
+}
