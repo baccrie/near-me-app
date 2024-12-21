@@ -60,5 +60,5 @@ const LocaleSchema = new Schema({
   },
 });
 
-export default model('locale', LocaleSchema);
+export default model('Locale', LocaleSchema);
 
