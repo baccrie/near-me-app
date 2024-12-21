@@ -1,0 +1,25 @@
+A locale Object will contain
+  Name
+  geopraphical details
+    lat and lng
+    country
+    state
+
+  Reviews Object
+  Host
+  Visits
+  Availablity status
+  Amenities features
+  Gallery
+  Datecreated
+
+Review object will contain
+  Name of reviewer
+  Review statement
+  Ratings (1-5)
+
+User
+  Name
+  phone number
+  Date created
+  profile pics
