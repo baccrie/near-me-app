@@ -1,4 +1,4 @@
-import { getLocale } from '../controller/Locale'
+import { getLocale } from '../controller/locale'
 
 import express from 'express'
 const route = express.Router()

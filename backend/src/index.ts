@@ -11,6 +11,7 @@ const PORT = 3000;
 
 // Middleware
 app.use(express.json());
+app.use(express.static('./public'))
 
 // Routes
 app.get('/', (req, res, next)=> {
@@ -18,6 +19,7 @@ app.get('/', (req, res, next)=> {
     status: 'working...'
   })
 })
+
 app.use(route);
 
 // Start Server

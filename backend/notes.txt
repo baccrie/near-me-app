@@ -20,6 +20,6 @@ Review object will contain
 
 User
   Name
-  phone number
+  email
   Date created
   profile pics
