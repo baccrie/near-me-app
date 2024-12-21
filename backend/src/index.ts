@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
 
 const app = express();
 const PORT = 3000;
@@ -7,9 +8,11 @@ const PORT = 3000;
 app.use(express.json());
 
 // Routes
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, TypeScript with Express!');
-});
+app.get('/', (req, res, next)=> {
+  res.status(StatusCodes.OK).json({
+    status: 'working...'
+  })
+})
 
 // Start Server
 app.listen(PORT, () => {
