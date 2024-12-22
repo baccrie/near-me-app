@@ -65,20 +65,20 @@ const LocaleSchema = new Schema({
           required: true,
         },
         openTime: {
-          type: String, // Use 24-hour format like "08:00"
+          type: String, 
           required: true,
         },
         closeTime: {
-          type: String, // Use 24-hour format like "18:00"
+          type: String, 
           required: true,
         },
         isOpen: {
           type: Boolean,
-          default: true, // Whether the locale is open on that day
+          default: true, 
         },
       },
     ],
-    
+
     required: true,
     default: [
       { day: 'Monday', openTime: '08:00', closeTime: '18:00' },
