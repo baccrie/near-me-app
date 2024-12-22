@@ -10,6 +10,7 @@ const LocaleSchema = new Schema({
     type: String,
     required: [true, 'Description is required'], 
   },
+
   coordinates: {
     longitude: {
       type: Number,
@@ -20,10 +21,12 @@ const LocaleSchema = new Schema({
       required: [true, 'Latitude is required'], 
     },
   },
+
   reviews: {
     type: [Types.ObjectId],
     ref: 'Review',
   },
+
   host: {
     name: {
       type: String,
@@ -59,6 +62,16 @@ const LocaleSchema = new Schema({
     default: Date.now,
   },
 });
+
+LocaleSchema.virtual("reviews", {
+  ref: "Review", 
+  localField: "_id", 
+  foreignField: "locale",
+});
+
+LocaleSchema.set("toObject", { virtuals: true });
+LocaleSchema.set("toJSON", { virtuals: true });
+
 
 export default model('Locale', LocaleSchema);
 
