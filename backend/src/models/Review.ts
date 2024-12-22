@@ -27,7 +27,7 @@ const ReviewSchema = new Schema({
     },
     required: true,
   }
-})
+}, {timestamps: true})
 
 ReviewSchema.index({locale: 1, reviewer: 1}, {unique: true
 })
