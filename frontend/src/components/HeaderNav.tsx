@@ -12,6 +12,7 @@ export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
   useEffect(
     function () {
       function toggleCta(e) {
+        console.log(e.key);
         if (isOpenCta && e.key === "Escape") setIsOpenCta(false);
       }
 

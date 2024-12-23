@@ -11,9 +11,19 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
 
   useEffect(
     function () {
+      document.documentElement.style.overflow = `${
+        isOpenLogin ? "hidden" : "scroll"
+      }`;
+    },
+    [isOpenLogin]
+  );
+
+  useEffect(
+    function () {
       const timer = setTimeout(() => setIsLoading((val) => !val), 5000);
 
       function toggleLogin(e) {
+        console.log(e.key);
         if (isOpenLogin && e.key === "Escape") setIsOpenLogin(false);
       }
 
