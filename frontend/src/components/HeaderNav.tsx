@@ -4,15 +4,16 @@ import { Link } from "react-router-dom";
 import User from "../assets/user.svg";
 import Logo from "../assets/logo.svg";
 import { useRef, useState } from "react";
+import { useDropDown } from "../context/dropdownContext";
 
-export default function HeaderNav({ type }) {
-  const [isOpen, setisOpen] = useState(false);
+export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
+  const { isOpen, toggleDropdown } = useDropDown();
+
   const ctaBtn = useRef();
 
   function toggleDropdownMenu(e) {
     e.preventDefault();
-
-    setisOpen((isOpen) => !isOpen);
+    toggleDropdown();
   }
 
   return (
@@ -61,8 +62,20 @@ export default function HeaderNav({ type }) {
           }`}
         >
           <ul>
-            <li>Sign up</li>
-            <li>Login</li>
+            <li
+              onClick={() => {
+                setIsOpenLogin(true);
+              }}
+            >
+              Sign up
+            </li>
+            <li
+              onClick={() => {
+                setIsOpenLogin(true);
+              }}
+            >
+              Login
+            </li>
             <li>Forgot password</li>
             <li>Near me ur org</li>
             <li>Help center</li>

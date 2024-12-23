@@ -9,7 +9,7 @@
   z-index: 300;
   background-color: rgba(1, 1, 1, 0.5);
 
-  transition: all 0.2s;
+  transition: all 0.8s;
 }
 
 .container {
@@ -49,6 +49,7 @@
   line-height: 1;
   font-size: 2rem;
   flex-basis: 30px;
+  cursor: pointer;
 }
 
 .header h4 {

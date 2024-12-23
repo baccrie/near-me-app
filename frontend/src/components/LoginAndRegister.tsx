@@ -6,24 +6,35 @@ import Apple from "../assets/apple.svg";
 import Spinner from "./Spinner";
 import { useEffect, useState } from "react";
 
-export default function LoginAndRegister() {
+export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(function () {
     const timer = setTimeout(() => setIsLoading((val) => !val), 5000);
 
+    document.documentElement.addEventListener("keydown", (e) => {
+      setIsOpenLogin(false);
+    });
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className={`${styles.wrapper} ${styles.visible}`}>
+    <div className={`${styles.wrapper} ${isOpenLogin ? "" : styles.visible}`}>
       <div className={styles.container}>
         {isLoading ? (
           <Spinner />
         ) : (
           <>
             <header className={styles.header}>
-              <button> &times;</button>
+              <button
+                onClick={() => {
+                  setIsOpenLogin(false);
+                }}
+              >
+                {" "}
+                &times;
+              </button>
               <h4>Log in or sign up</h4>
             </header>
 

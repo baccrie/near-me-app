@@ -220,6 +220,8 @@
 .ctaMenu ul li {
   font-family: inherit;
   font-size: 1.4rem;
+
+  cursor: pointer;
 }
 
 .ctaMenu li:not(:last-child) {
