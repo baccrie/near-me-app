@@ -3,18 +3,29 @@ import World from "../assets/world.svg";
 import { Link } from "react-router-dom";
 import User from "../assets/user.svg";
 import Logo from "../assets/logo.svg";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDropDown } from "../context/dropdownContext";
 
 export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
-  const { isOpen, toggleDropdown } = useDropDown();
+  const [isOpenCta, setIsOpenCta] = useState(false);
 
-  const ctaBtn = useRef();
+  useEffect(
+    function () {
+      function toggleCta(e) {
+        console.log(e.key);
+        if (isOpenCta && e.key === "Escape") setIsOpenCta(false);
+      }
 
-  function toggleDropdownMenu(e) {
-    e.preventDefault();
-    toggleDropdown();
-  }
+      if (isOpenCta) {
+        document.documentElement.addEventListener("keydown", toggleCta);
+      }
+
+      return () => {
+        document.documentElement.removeEventListener("keydown", toggleCta);
+      };
+    },
+    [isOpenCta]
+  );
 
   return (
     <div
@@ -47,15 +58,14 @@ export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
 
         <button
           aria-label="User menu"
-          ref={ctaBtn}
-          onClick={toggleDropdownMenu}
+          onClick={() => setIsOpenCta((value) => !value)}
         >
           <p className={styles.userName}></p>
           <img src={User} alt="User profile" />
         </button>
       </div>
 
-      {isOpen && (
+      {isOpenCta && (
         <div
           className={`${styles.ctaMenu} ${
             type === "smaller" ? styles.smallerHeaderDropdown : ""
