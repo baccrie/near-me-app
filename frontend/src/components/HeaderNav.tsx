@@ -3,8 +3,7 @@ import World from "../assets/world.svg";
 import { Link } from "react-router-dom";
 import User from "../assets/user.svg";
 import Logo from "../assets/logo.svg";
-import { useEffect, useRef, useState } from "react";
-import { useDropDown } from "../context/dropdownContext";
+import { useEffect, useState } from "react";
 
 export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
   const [isOpenCta, setIsOpenCta] = useState(false);
@@ -12,7 +11,6 @@ export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
   useEffect(
     function () {
       function toggleCta(e) {
-        console.log(e.key);
         if (isOpenCta && e.key === "Escape") setIsOpenCta(false);
       }
 
