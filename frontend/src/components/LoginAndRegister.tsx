@@ -9,15 +9,25 @@ import { useEffect, useState } from "react";
 export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(function () {
-    const timer = setTimeout(() => setIsLoading((val) => !val), 5000);
+  useEffect(
+    function () {
+      const timer = setTimeout(() => setIsLoading((val) => !val), 5000);
 
-    document.documentElement.addEventListener("keydown", (e) => {
-      setIsOpenLogin(false);
-    });
+      function toggleLogin(e) {
+        if (isOpenLogin && e.key === "Escape") setIsOpenLogin(false);
+      }
 
-    return () => clearTimeout(timer);
-  }, []);
+      if (isOpenLogin) {
+        document.documentElement.addEventListener("keydown", toggleLogin);
+      }
+
+      return () => {
+        clearTimeout(timer);
+        document.documentElement.removeEventListener("keydown", toggleLogin);
+      };
+    },
+    [isOpenLogin, setIsOpenLogin]
+  );
 
   return (
     <div className={`${styles.wrapper} ${isOpenLogin ? "" : styles.visible}`}>
