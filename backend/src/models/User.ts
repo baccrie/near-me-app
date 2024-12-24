@@ -4,6 +4,7 @@ const UserSchema = new Schema({
   username: {
     type: String,
     required: [true, 'Username is required'],
+    unique: [true, 'username already exists pls choose another one'],
     trim: true,
     minlength: [3, 'Username must be at least 3 characters long'],
   },
@@ -61,10 +62,12 @@ const UserSchema = new Schema({
     default: false,
   },
 
+  
   lastLogin: {
     type: Date,
     default: null,
   },
+
   createdAt: {
     type: Date,
     default: Date.now,
