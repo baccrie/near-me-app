@@ -10,7 +10,7 @@ import authRouter from './routes/auth';
 
 // security packages
 import helmet from 'helmet';
-// import cors from 'cors'
+import cors from 'cors'
 import mongoSanitize from 'express-mongo-sanitize'
 // import xss from 'xss-clean'
 
@@ -22,7 +22,7 @@ const PORT = 3000;
 
 app.use(helmet())
 // app.use(xss())
-// app.use(cors())
+app.use(cors())
 app.use(mongoSanitize())
 
 // Middleware
@@ -37,7 +37,8 @@ app.get('/', (req, res, next)=> {
 })
 
 // auth
-app.use('api/v1', authRouter)
+app.use('/api/v1', authRouter)
+
 // Not found and Error Handler
 app.use('*', notFound)
 app.use(errorHandler)

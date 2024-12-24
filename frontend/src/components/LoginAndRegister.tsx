@@ -14,6 +14,7 @@ const initialFormData = {
   username: "",
   email: "",
 };
+const baseUrl = "http://localhost:3000/api/v1/auth";
 
 export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +52,7 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
         });
       };
     },
-    [username]
+    [username, email]
   );
 
   // Delay timer
@@ -92,6 +93,22 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
     [isOpenLogin, setIsOpenLogin]
   );
 
+  // handle form submission
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (usernameError || emailError) return;
+
+    const res = await fetch(`${baseUrl}/register`, {
+      method: "POST",
+      body: JSON.stringify({
+        name: "test",
+        email: "test",
+      }),
+    });
+
+    const data = await res.json();
+  }
+
   return (
     <div className={`${styles.wrapper} ${isOpenLogin ? "" : styles.visible}`}>
       <div className={styles.container}>
@@ -114,7 +131,7 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
 
             <h3>Welcome to Nearme</h3>
 
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.inputContainer}>
                 <input
                   placeholder="Username"

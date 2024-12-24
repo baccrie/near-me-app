@@ -20,6 +20,7 @@
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.1",
     "node-ts": "^6.1.3",
