@@ -3,7 +3,7 @@ import MainNav from "../components/MainNav";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 import LoginAndRegister from "../components/LoginAndRegister";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function HomePage() {
   const [isOpenLogin, setIsOpenLogin] = useState(false);

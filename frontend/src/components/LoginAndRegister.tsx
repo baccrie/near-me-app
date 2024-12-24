@@ -1,14 +1,69 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import styles from "./LoginAndRegister.module.css";
 import Google from "../assets/google.svg";
 import Facebook from "../assets/facebook.svg";
 import Email from "../assets/email.svg";
 import Apple from "../assets/apple.svg";
 import Spinner from "./Spinner";
+import Valid from "../assets/valid.svg";
+import Invalid from "../assets/invalid.svg";
+
 import { useEffect, useState } from "react";
+
+const initialFormData = {
+  username: "",
+  email: "",
+};
 
 export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
   const [isLoading, setIsLoading] = useState(true);
+  // const [username, setUsername] = useState("");
+  const [{ username, email }, setFormData] = useState(initialFormData);
 
+  const [{ usernameError, emailError }, setFormError] = useState({
+    usernameError: "",
+    emailError: "",
+  });
+
+  useEffect(
+    function () {
+      if (
+        username.length > 5 &&
+        username !== "Fred Swaniker" &&
+        username !== ""
+      )
+        setFormError((curr) => {
+          return { ...curr, usernameError: "The username already exists..." };
+        });
+
+      if (email.length > 5 && email !== "test@gmail.com" && email !== "")
+        setFormError((curr) => {
+          return {
+            ...curr,
+            emailError: "The email already exists please pick another email...",
+          };
+        });
+
+      return () => {
+        setFormError({
+          usernameError: "",
+          emailError: "",
+        });
+      };
+    },
+    [username]
+  );
+
+  // Delay timer
+  useEffect(function () {
+    const delay = setTimeout(() => setIsLoading(false), 5000);
+
+    return () => {
+      clearTimeout(delay);
+    };
+  }, []);
+
+  // Hide scroll bar
   useEffect(
     function () {
       document.documentElement.style.overflow = `${
@@ -18,12 +73,10 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
     [isOpenLogin]
   );
 
+  // toggle dropdown
   useEffect(
     function () {
-      const timer = setTimeout(() => setIsLoading((val) => !val), 5000);
-
       function toggleLogin(e) {
-        console.log(e.key);
         if (isOpenLogin && e.key === "Escape") setIsOpenLogin(false);
       }
 
@@ -32,8 +85,8 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
       }
 
       return () => {
-        clearTimeout(timer);
         document.documentElement.removeEventListener("keydown", toggleLogin);
+        setFormData(initialFormData);
       };
     },
     [isOpenLogin, setIsOpenLogin]
@@ -50,6 +103,7 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
               <button
                 onClick={() => {
                   setIsOpenLogin(false);
+                  setFormData(initialFormData);
                 }}
               >
                 {" "}
@@ -61,9 +115,40 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
             <h3>Welcome to Nearme</h3>
 
             <form className={styles.form}>
-              <input />
-              <input placeholder="Phone number" />
-              <span>Make sure the number is active for confirmation text</span>
+              <div className={styles.inputContainer}>
+                <input
+                  placeholder="Username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => {
+                    setFormData((curr) => {
+                      return { ...curr, username: e.target.value };
+                    });
+                  }}
+                />
+
+                {username && <img src={`${usernameError ? Invalid : Valid}`} />}
+              </div>
+
+              <div className={styles.inputContainer}>
+                <input
+                  placeholder="Email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setFormData((curr) => {
+                      return { ...curr, email: e.target.value };
+                    });
+                  }}
+                />
+
+                {email && <img src={`${emailError ? Invalid : Valid}`} />}
+              </div>
+
+              <span>Make sure the email is active for confirmation text</span>
+              <span style={{ color: "red", fontWeight: "500" }}>
+                {usernameError || emailError}
+              </span>
 
               <button className={styles.submit}>Continue</button>
             </form>

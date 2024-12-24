@@ -73,6 +73,7 @@ export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
             <li
               onClick={() => {
                 setIsOpenLogin(true);
+                setIsOpenCta(false);
               }}
             >
               Sign up
@@ -80,6 +81,7 @@ export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
             <li
               onClick={() => {
                 setIsOpenLogin(true);
+                setIsOpenCta(false);
               }}
             >
               Login
