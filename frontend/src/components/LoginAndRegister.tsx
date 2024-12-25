@@ -26,25 +26,45 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
     emailError: "",
   });
 
+  // check details existence and validate
   useEffect(
     function () {
-      if (
-        username.length > 5 &&
-        username !== "Fred Swaniker" &&
-        username !== ""
-      )
-        setFormError((curr) => {
-          return { ...curr, usernameError: "The username already exists..." };
-        });
+      async function checkExistence({ username, email }) {
+        const res = await fetch(
+          `${baseUrl}/check-existence?username=${username}&email=${email}`
+        );
 
-      if (email.length > 5 && email !== "test@gmail.com" && email !== "")
+        const data = await res.json();
+        console.log(data);
+
+        if (data.exists === true) {
+          if (data.exists.field === "username") {
+            setFormError((curr) => {
+              return {
+                ...curr,
+                usernameError: "username already exist, try a different one",
+              };
+            });
+          } else {
+            setFormError((curr) => {
+              return {
+                ...curr,
+                emailError: "email already exist , pick a different one",
+              };
+            });
+          }
+        }
+      }
+
+      if (username.length < 5)
         setFormError((curr) => {
           return {
             ...curr,
-            emailError: "The email already exists please pick another email...",
+            usernameError: "username too short",
           };
         });
 
+      checkExistence({ username, email });
       return () => {
         setFormError({
           usernameError: "",
@@ -100,6 +120,9 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
 
     const res = await fetch(`${baseUrl}/register`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         name: "test",
         email: "test",
@@ -107,6 +130,7 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
     });
 
     const data = await res.json();
+    console.log(data);
   }
 
   return (
@@ -164,7 +188,7 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
 
               <span>Make sure the email is active for confirmation text</span>
               <span style={{ color: "red", fontWeight: "500" }}>
-                {usernameError || emailError}
+                {usernameError || emailError || "."}
               </span>
 
               <button className={styles.submit}>Continue</button>

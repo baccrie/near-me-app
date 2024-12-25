@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './db/connect';
 import notFound from './controller/notFound';
 import errorHandler from './controller/errorHandler';
+import User from "./models/User"
 
 // Import routers
 import authRouter from './routes/auth';
@@ -12,6 +13,7 @@ import authRouter from './routes/auth';
 import helmet from 'helmet';
 import cors from 'cors'
 import mongoSanitize from 'express-mongo-sanitize'
+import mongoose, { Mongoose } from 'mongoose';
 // import xss from 'xss-clean'
 
 // Env var
@@ -47,6 +49,8 @@ app.use(errorHandler)
 const startApp = async ()=>{
   try {
   await connectDB( `${process.env.URL}`)
+  await mongoose.connection.dropDatabase();
+  await User.create({username: 'baccrie', email: 'test@gmail.com'});
   app.listen(process.env.PORT, ()=> console.log(`app is listening to port ${PORT}`))
   } catch(err) {
     console.log(err)
