@@ -1,0 +1,91 @@
+/* LocaleForm.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  color: #ff5a5f; /* Airbnb's primary color */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.input,
+.textarea,
+.inputSmall {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.inputSmall {
+  width: auto;
+  display: inline-block;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.button {
+  background-color: #ff5a5f;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #e14850;
+}
+
+.fieldset {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.legend {
+  font-weight: bold;
+  color: #555;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day {
+  font-weight: bold;
+  color: #555;
+}
+
+.checkbox {
+  margin-left: 0.5rem;
+}

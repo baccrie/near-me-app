@@ -1,0 +1,99 @@
+.structure {
+  height: 95vh;
+}
+
+.structure ul {
+  height: 85%;
+  overflow: auto;
+  scrollbar-width: none;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 2%;
+  width: 100%;
+  padding: 0rem 55rem;
+  margin: auto;
+}
+
+.structure ul h2 {
+  text-align: center;
+  padding: 0rem 5.5rem;
+  font-size: 2r.4em;
+  font-weight: 500;
+}
+
+.structure ul li .btn {
+  border-radius: 1rem;
+
+  width: 100%;
+  border: none;
+  height: 100%;
+  outline: none;
+  padding: 2rem;
+  border: 2px solid #dddddd;
+  background-color: transparent;
+  font-size: 1.4rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: all 0.3s;
+}
+
+.structure ul li .btn:hover {
+  border: 2px solid #000;
+}
+
+.structure ul li {
+  flex-basis: 32%;
+  margin-bottom: 1.5rem;
+}
+
+.structure ul li img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 1rem;
+}
+
+.structure ul li span {
+  text-align: left;
+  display: block;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 4px solid #dddddd;
+  padding: 2rem 4rem;
+}
+
+.footer .back,
+.next {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.back {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.next {
+  font-weight: 600;
+  background-color: #000;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 8px;
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.next:hover {
+  opacity: 0.8;
+}

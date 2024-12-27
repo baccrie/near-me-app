@@ -1,0 +1,24 @@
+.hostLocaleHeader {
+  margin: 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+}
+
+.hostLocaleHeader .btn {
+  border: 1px solid #dddddd;
+  font-weight: 500;
+  color: black;
+  font-size: 1.4rem;
+  background-color: transparent;
+  padding: 1rem 1.5rem;
+  border-radius: 3.2rem;
+  cursor: pointer;
+
+  transition: all 0.4s;
+}
+
+.hostLocaleHeader .btn:hover {
+  border: 1px solid #000;
+}

@@ -1,0 +1,90 @@
+.hostLocaleOverview {
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10rem;
+  margin: auto;
+
+  width: 60%;
+}
+
+.hostLocaleOverview h1 {
+  flex-basis: 40%;
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+.hostLocaleOverview .overview {
+  flex-grow: 1;
+}
+
+.hostLocaleOverview ul {
+  list-style-type: none;
+}
+
+.hostLocaleOverview ul li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}
+
+.hostLocaleOverview ul li h3 {
+  font-weight: 500;
+  font-size: 2rem;
+}
+.hostLocaleOverview ul li:not(:last-of-type) {
+  border-bottom: 2px solid #dddddd;
+  padding-bottom: 4rem;
+}
+
+.hostLocaleOverview ul li:not(:first-of-type) {
+  padding-top: 4rem;
+}
+
+.hostLocaleOverview ul li span {
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: -2px;
+  flex-basis: 4rem;
+}
+
+.hostLocaleOverview ul li .img {
+  flex-basis: 10rem;
+  height: 10rem;
+}
+
+.hostLocaleOverview ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hostLocaleOverview ul .details {
+  flex-basis: 70%;
+}
+
+.details p {
+  font-weight: 300;
+}
+
+.footer {
+  padding-top: 2rem;
+  border-top: 6px solid #dddddd;
+  text-align: right;
+  padding-right: 2rem;
+  height: 20vh;
+}
+
+.footer .btn {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #fff;
+  margin-right: auto;
+  border: none;
+  background-color: var(--color-primary);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
