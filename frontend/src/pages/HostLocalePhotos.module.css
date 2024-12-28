@@ -1,0 +1,119 @@
+.uploadPhotos {
+  padding-top: 6rem;
+  flex-basis: 90vh;
+
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.photos {
+  max-width: 70rem;
+  margin: auto;
+}
+
+.photos .photosDrag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.photoContainer {
+  width: 100%;
+}
+
+.photoContainer .photoMain {
+  height: 45rem;
+
+  margin-bottom: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoContainer .photoMain img {
+  display: block;
+}
+
+.photoContainer img {
+  width: 30px;
+  height: 30px;
+}
+
+.otherPhotos {
+  background-color: white;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.otherPhotos > * {
+  flex-basis: 49%;
+
+  height: 25rem;
+  margin-bottom: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoMain,
+.otherPhotos > * {
+  border: 1px dashed #6a6a6a;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+
+.drag {
+  background-color: #6a6a6a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 2rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.btnContainer {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back,
+.next {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.back {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.next {
+  font-weight: 600;
+  background-color: #000;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 8px;
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.next:hover {
+  opacity: 0.8;
+}

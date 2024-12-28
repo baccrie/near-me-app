@@ -1,0 +1,92 @@
+.location {
+  border: 1px solid red;
+  height: 80vh;
+  padding: 2rem 0rem;
+
+  overflow: hidden;
+  margin: auto;
+}
+
+.map {
+  height: 80%;
+  border-radius: 20px;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map .input {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  padding: 2.2rem;
+  border-radius: 4rem;
+  background-color: #fff;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 2px 6px 16px 2px;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 500;
+  width: 80%;
+  transform: translateX(-50%);
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+
+.header span {
+  font-size: 1.6rem;
+  color: inherit;
+  font-weight: 300;
+}
+
+.header h1 {
+  font-weight: 500;
+  font-size: 3rem;
+  letter-spacing: -1px;
+}
+
+.btnContainer {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back,
+.next {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.back {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.next {
+  font-weight: 600;
+  background-color: #000;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 8px;
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.next:hover {
+  opacity: 0.8;
+}

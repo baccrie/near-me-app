@@ -1,0 +1,11 @@
+.footer {
+  border-top: 6px solid #dddddd;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 8rem;
+  flex: 0 0 auto;
+}

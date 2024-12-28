@@ -1,9 +1,16 @@
-.hostLocaleHeader {
-  margin: 2rem 4rem;
+.hostLocale {
+  height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.hostLocaleHeader {
+  padding: 0 3.2rem;
+  display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  height: 5vh;
+  height: 8rem;
+  flex: 0 0 auto;
 }
 
 .hostLocaleHeader .btn {
@@ -21,4 +28,8 @@
 
 .hostLocaleHeader .btn:hover {
   border: 1px solid #000;
+}
+
+.hostLocaleHeader .btn:first-of-type {
+  margin-right: 2rem;
 }

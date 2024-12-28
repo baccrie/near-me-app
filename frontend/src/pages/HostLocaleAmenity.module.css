@@ -1,0 +1,115 @@
+.hostLocaleAmenity {
+  padding-top: 5rem;
+  align-self: center;
+  height: 90vh;
+  overflow: auto;
+  scrollbar-width: none;
+  width: 40%;
+}
+
+.hostLocaleAmenity h2 {
+  font-weight: 500;
+  font-size: 3rem;
+  letter-spacing: -0.64px;
+  line-height: 3.6rem;
+  color: #000;
+}
+
+.hostLocaleAmenity .info {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.hostLocaleAmenity h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.hostLocaleAmenity .btn {
+  padding: 2rem 1.6rem;
+  text-align: left;
+  font-weight: 1.4rem;
+  outline: none;
+  border: none;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+}
+
+.hostLocaleAmenity ul {
+  list-style-type: none;
+
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hostLocaleAmenity ul li {
+  flex-basis: 25%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.btn img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.hostLocaleAmenity .btn span {
+  display: block;
+}
+
+.btnContainer {
+  /* background-color: red;
+  width: 100%;
+
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; */
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back,
+.next {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.back {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.next {
+  font-weight: 600;
+  background-color: #000;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 8px;
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.next:hover {
+  opacity: 0.8;
+}

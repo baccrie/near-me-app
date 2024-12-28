@@ -40,6 +40,7 @@ const LocaleSchema = new Schema({
       type: String,
     },
   },
+  
   gallery: {
     image1: { type: String },
     image2: { type: String },

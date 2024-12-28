@@ -1,0 +1,89 @@
+.section {
+  flex-grow: 1;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.container {
+  width: 30%;
+  margin: auto;
+  padding-top: 10rem;
+}
+
+.container textarea {
+  border: 1px solid #6a6a6a;
+  background-color: transparent;
+  border-radius: 10px;
+  width: 100%;
+  height: 20rem;
+  resize: vertical;
+  padding: 2rem 2rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+}
+
+.container textarea::placeholder {
+  color: #000;
+}
+
+.container h3 {
+  letter-spacing: -0.64px;
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 30px;
+}
+
+.title span,
+.description span {
+  font-family: inherit;
+  display: block;
+  margin-bottom: 2rem;
+  color: #6a6a6a;
+  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.container .limit {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.btnContainer {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back,
+.next {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.back {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.next {
+  font-weight: 600;
+  background-color: #000;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 8px;
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.next:hover {
+  opacity: 0.8;
+}

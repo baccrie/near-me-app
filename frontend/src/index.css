@@ -38,6 +38,10 @@ Primary dark: #BA265D
   border-radius: 5px;
 }
 
+html. body {
+  height: 100%;
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;

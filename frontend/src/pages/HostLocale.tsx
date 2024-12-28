@@ -4,12 +4,16 @@ import Logo from "../assets/logo.svg";
 
 export default function HostLocale() {
   return (
-    <>
+    <main className={styles.hostLocale}>
       <section className={styles.hostLocaleHeader}>
         <img src={Logo} />
-        <button className={styles.btn}>Save & exit</button>
+
+        <div className={styles.buttons}>
+          <button className={styles.btn}>Questions</button>
+          <button className={styles.btn}>Save & exit</button>
+        </div>
       </section>
       <Outlet />
-    </>
+    </main>
   );
 }

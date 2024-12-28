@@ -1,11 +1,11 @@
 .structure {
-  height: 95vh;
+  flex-basis: 1;
+
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 .structure ul {
-  height: 85%;
-  overflow: auto;
-  scrollbar-width: none;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +69,16 @@
   padding: 2rem 4rem;
 }
 
-.footer .back,
+.btnContainer {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back,
 .next {
   font-size: 1.6rem;
   border: none;

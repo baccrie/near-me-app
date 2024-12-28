@@ -1,22 +1,27 @@
-.hostLocaleOverview {
-  height: 80vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10rem;
-  margin: auto;
+.overviewContainer {
+  flex: 1 1 auto;
+  padding: 0 8rem;
 
-  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hostLocaleOverview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hostLocaleOverview h1 {
   flex-basis: 40%;
   font-weight: 500;
-  font-size: 4rem;
+  font-size: 6rem;
+  margin-right: 16rem;
+  letter-spacing: 1px;
 }
 
 .hostLocaleOverview .overview {
-  flex-grow: 1;
+  flex-basis: 40%;
 }
 
 .hostLocaleOverview ul {
@@ -34,7 +39,7 @@
   font-size: 2rem;
 }
 .hostLocaleOverview ul li:not(:last-of-type) {
-  border-bottom: 2px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
   padding-bottom: 4rem;
 }
 
@@ -68,23 +73,13 @@
   font-weight: 300;
 }
 
-.footer {
-  padding-top: 2rem;
-  border-top: 6px solid #dddddd;
-  text-align: right;
-  padding-right: 2rem;
-  height: 20vh;
-}
-
-.footer .btn {
-  display: inline-block;
+.btn {
   font-family: inherit;
   font-weight: 600;
   font-size: 1.6rem;
   color: #fff;
-  margin-right: auto;
   border: none;
   background-color: var(--color-primary);
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   border-radius: 1rem;
 }
