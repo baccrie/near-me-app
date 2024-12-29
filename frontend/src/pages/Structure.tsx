@@ -1,6 +1,6 @@
 import styles from "./Structure.module.css";
-import { button } from "react-router";
-import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 import Kitchen from "../assets/kitchen.svg";
 import Next from "../assets/next.svg";
@@ -16,13 +16,17 @@ import Tv from "../assets/tv.svg";
 import Camera from "../assets/cameras.svg";
 import Alarm from "../assets/alarm.svg";
 import HostLocaleFooter from "../components/HostLocaleFooter";
+import Spinner from "../components/Spinner";
+import useFooterNav from "../hooks/hostLocaleFooterNav";
 
 export default function Structure() {
+  const [isLoading, setIsLoading, navigate] = useFooterNav();
+
   return (
     <>
       <section className={styles.structure}>
+        <h2>Which of these best describes your locale?</h2>
         <ul>
-          <h2>Which of these best describes your place</h2>
           <li>
             <button className={styles.btn}>
               <img src={Kitchen} alt="Kitchen" />
@@ -151,7 +155,13 @@ export default function Structure() {
           <button onClick={() => navigate(-1)} className={styles.back}>
             Back
           </button>
-          <button className={styles.next}>Next</button>
+          <button
+            className={`${styles.next} ${isLoading ? styles.isLoading : ""}`}
+            disabled={isLoading}
+            onClick={() => setIsLoading(true)}
+          >
+            {isLoading ? <Spinner /> : "Next"}
+          </button>
         </div>
       </HostLocaleFooter>
     </>

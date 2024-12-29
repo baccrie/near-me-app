@@ -15,13 +15,17 @@
 .hostLocaleOverview h1 {
   flex-basis: 40%;
   font-weight: 500;
-  font-size: 6rem;
-  margin-right: 16rem;
+  font-size: 4rem;
+  margin-right: 10rem;
   letter-spacing: 1px;
+
+  animation: fromLeft 1s ease-in;
 }
 
 .hostLocaleOverview .overview {
-  flex-basis: 40%;
+  animation: fromRight 1s ease-in;
+
+  flex-basis: 35%;
 }
 
 .hostLocaleOverview ul {
@@ -30,6 +34,7 @@
 
 .hostLocaleOverview ul li {
   display: flex;
+
   justify-content: space-between;
   font-size: 1.6rem;
 }
@@ -48,14 +53,14 @@
 }
 
 .hostLocaleOverview ul li span {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 2rem;
   letter-spacing: -2px;
   flex-basis: 4rem;
 }
 
 .hostLocaleOverview ul li .img {
-  flex-basis: 10rem;
+  flex-basis: 15rem;
   height: 10rem;
 }
 
@@ -66,7 +71,7 @@
 }
 
 .hostLocaleOverview ul .details {
-  flex-basis: 70%;
+  flex-grow: 1;
 }
 
 .details p {
@@ -75,11 +80,58 @@
 
 .btn {
   font-family: inherit;
-  font-weight: 600;
-  font-size: 1.6rem;
+  font-weight: 500;
+  font-size: 1.4rem;
   color: #fff;
   border: none;
-  background-color: var(--color-primary);
-  padding: 1rem 1rem;
+  background-color: red;
+  padding: 1rem 0rem;
   border-radius: 1rem;
+  position: relative;
+  width: 12rem;
+  height: 5rem;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.loading {
+  cursor: not-allowed;
+  background-color: gray;
+}
+
+@keyframes fromLeft {
+  0% {
+    transform: translateX(-100px);
+    scale: 0.5;
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(-50px);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fromRight {
+  0% {
+    transform: translateX(+50px);
+    scale: 0.2;
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(+50px);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }

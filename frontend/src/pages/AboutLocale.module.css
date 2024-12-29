@@ -11,6 +11,7 @@
   height: 80vh;
   width: 80%;
   margin: auto;
+  animation: fromLeft 1s ease-in;
 }
 
 .instruction {
@@ -20,6 +21,7 @@
 
 .img {
   flex-grow: 1;
+  animation: fadeIn 1s ease-out;
 }
 
 .img img {
@@ -81,13 +83,55 @@
   font-weight: 600;
   background-color: #000;
   border: none;
-  padding: 1.2rem 3rem;
   border-radius: 8px;
   color: #fff;
+  width: 10rem;
+  height: 4rem;
+  position: relative;
 
   transition: all 0.3s;
 }
 
 .next:hover {
   opacity: 0.8;
+}
+
+.loading {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+@keyframes fromLeft {
+  0% {
+    transform: translateX(-100px);
+    scale: 0.5;
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(-50px);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+    scale: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
 }

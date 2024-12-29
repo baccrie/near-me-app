@@ -11,10 +11,10 @@
 }
 
 .spinner div {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin: 0 4px;
-  background-color: #000;
+  background-color: #fff;
   border-radius: 50%;
   animation: bounce 1.2s infinite ease-in-out;
 }

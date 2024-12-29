@@ -9,17 +9,20 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 
-  gap: 2%;
   width: 100%;
   padding: 0rem 55rem;
   margin: auto;
+  animation: fromTop 0.5s;
 }
 
-.structure ul h2 {
+.structure h2 {
   text-align: center;
-  padding: 0rem 5.5rem;
-  font-size: 2r.4em;
+  padding: 0rem 5rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   font-weight: 500;
 }
 
@@ -30,24 +33,22 @@
   border: none;
   height: 100%;
   outline: none;
-  padding: 2rem;
-  border: 2px solid #dddddd;
+  padding: 1.6rem;
+  outline: 1px solid #dddddd;
   background-color: transparent;
   font-size: 1.4rem;
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
-
-  transition: all 0.3s;
 }
 
 .structure ul li .btn:hover {
-  border: 2px solid #000;
+  outline: 2px solid #000;
 }
 
 .structure ul li {
-  flex-basis: 32%;
-  margin-bottom: 1.5rem;
+  flex-basis: 31%;
+  margin-bottom: 0.4rem;
 }
 
 .structure ul li img {
@@ -96,13 +97,30 @@
   font-weight: 600;
   background-color: #000;
   border: none;
-  padding: 1.2rem 3rem;
+  width: 10rem;
+  height: 4rem;
   border-radius: 8px;
   color: #fff;
+  position: relative;
 
   transition: all 0.3s;
 }
 
 .next:hover {
   opacity: 0.8;
+}
+
+.isLoading {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+@keyframes fromTop {
+  0% {
+    transform: translateY(-500px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
