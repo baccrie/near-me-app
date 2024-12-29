@@ -3,6 +3,7 @@ import HostLocaleFooter from "../components/HostLocaleFooter";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
+import useFooterNav from "../hooks/hostLocaleFooterNav";
 
 const steps = [
   {
@@ -26,23 +27,7 @@ const steps = [
 ];
 
 export default function HostLocaleOverview() {
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    let timeoutId: number | undefined;
-
-    if (isLoading) {
-      timeoutId = setTimeout(() => {
-        navigate("/host-your-locale/about-your-locale");
-      }, 5000);
-    }
-
-    // Cleanup function to clear timeout
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [isLoading, navigate]);
+  const [isLoading, setIsLoading] = useFooterNav("about-your-locale");
 
   return (
     <>

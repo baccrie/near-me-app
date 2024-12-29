@@ -1,20 +1,10 @@
-import { useNavigate } from "react-router-dom"; // Use the correct package for navigation
-import { useState } from "react"; // Import useState for loading state
 import styles from "../pages/AboutLocale.module.css";
 import HostLocaleFooter from "../components/HostLocaleFooter";
 import Spinner from "../components/Spinner"; // Import Spinner component
+import useFooterNav from "../hooks/hostLocaleFooterNav";
 
 export default function AboutLocale() {
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false); // State to track loading
-
-  function handleNextClick() {
-    setIsLoading(true); // Set loading to true
-    setTimeout(() => {
-      setIsLoading(false); // Reset loading state after navigation
-      navigate("/host-your-locale/structure"); // Replace "/next-step" with your desired route
-    }, 2000); // Simulate a delay for the loading effect
-  }
+  const [isLoading, setIsLoading, navigate] = useFooterNav("structure");
 
   return (
     <>
@@ -43,7 +33,7 @@ export default function AboutLocale() {
             Back
           </button>
           <button
-            onClick={handleNextClick}
+            onClick={() => setIsLoading(true)}
             className={`${styles.next} ${isLoading ? styles.loading : ""}`}
             disabled={isLoading} // Disable button when loading
           >
