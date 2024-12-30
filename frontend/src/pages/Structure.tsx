@@ -20,7 +20,7 @@ import Spinner from "../components/Spinner";
 import useFooterNav from "../hooks/hostLocaleFooterNav";
 
 export default function Structure() {
-  const [isLoading, setIsLoading, navigate] = useFooterNav();
+  const [isLoading, setIsLoading, navigate] = useFooterNav("location");
 
   return (
     <>

@@ -10,6 +10,8 @@ import LocaleLocation from "./pages/LocaleLocation";
 import HostLocaleAmenity from "./pages/HostLocaleAmenity";
 import HostLocalePhotos from "./pages/HostLocalePhotos";
 import LocaleDetails from "./pages/LocaleDetails";
+import AboutHost from "./pages/AboutHost";
+import AccountSettings from "./pages/AccountSettings";
 
 function App() {
   return (
@@ -25,8 +27,10 @@ function App() {
             <Route path="amenities" element={<HostLocaleAmenity />} />
             <Route path="photos" element={<HostLocalePhotos />} />
             <Route path="location" element={<LocaleLocation />} />
+            <Route path="about-host" element={<AboutHost />} />
             <Route path="details" element={<LocaleDetails />} />
           </Route>
+          <Route path="account-settings" element={<AccountSettings />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

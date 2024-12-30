@@ -12,15 +12,37 @@ const LocaleSchema = new Schema({
     required: [true, 'Description is required'], 
   },
 
-  coordinates: {
+  category: {
+    type: String,
+    required: [true, 'Locale must belong to a category']
+  },
+
+  location: {
     longitude: {
       type: Number,
       required: [true, 'Longitude is required'], 
     },
+
     latitude: {
       type: Number,
       required: [true, 'Latitude is required'], 
     },
+
+    country: {
+      type: String,
+      required: [true, 'Country is required'], 
+    },
+
+    state: {
+      type: String,
+      required: [true, 'state is required'], 
+    }, 
+
+    address: {
+      type: String,
+      required: [true, 'address is required'], 
+    }
+
   },
 
   reviews: {
@@ -46,6 +68,7 @@ const LocaleSchema = new Schema({
     image2: { type: String },
     image3: { type: String },
     image4: { type: String },
+    image5: { type: String },
   },
 
   coverImage: {

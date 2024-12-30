@@ -63,13 +63,6 @@
   display: block;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  border-top: 4px solid #dddddd;
-  padding: 2rem 4rem;
-}
-
 .btnContainer {
   height: 100%;
   width: 100%;
@@ -97,10 +90,10 @@
   font-weight: 600;
   background-color: #000;
   border: none;
-  width: 10rem;
-  height: 4rem;
   border-radius: 8px;
   color: #fff;
+  width: 10rem;
+  height: 4rem;
   position: relative;
 
   transition: all 0.3s;
@@ -110,7 +103,7 @@
   opacity: 0.8;
 }
 
-.isLoading {
+.loading {
   background-color: grey;
   cursor: not-allowed;
 }

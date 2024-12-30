@@ -32,6 +32,7 @@ export default function AboutLocale() {
           <button onClick={() => navigate(-1)} className={styles.back}>
             Back
           </button>
+
           <button
             onClick={() => setIsLoading(true)}
             className={`${styles.next} ${isLoading ? styles.loading : ""}`}

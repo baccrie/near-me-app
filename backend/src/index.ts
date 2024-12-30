@@ -46,7 +46,7 @@ app.use('*', notFound)
 app.use(errorHandler)
 
 // Start Server
-const startApp = async ()=>{
+const startApp = async () => {
   try {
   await connectDB( `${process.env.URL}`)
   await mongoose.connection.dropDatabase();

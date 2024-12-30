@@ -1,9 +1,14 @@
-.hostLocaleAmenity {
+.amenity {
+  width: 100%;
   padding-top: 5rem;
   align-self: center;
   height: 90vh;
   overflow: auto;
   scrollbar-width: none;
+}
+
+.hostLocaleAmenity {
+  margin: auto;
   width: 40%;
 }
 
@@ -69,14 +74,6 @@
 }
 
 .btnContainer {
-  /* background-color: red;
-  width: 100%;
-
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; */
-
   height: 100%;
   width: 100%;
 
@@ -103,13 +100,19 @@
   font-weight: 600;
   background-color: #000;
   border: none;
-  padding: 1.2rem 3rem;
   border-radius: 8px;
   color: #fff;
+  width: 10rem;
+  height: 4rem;
+  position: relative;
 
   transition: all 0.3s;
 }
 
 .next:hover {
   opacity: 0.8;
+}
+
+.loading {
+  cursor: not-allowed;
 }

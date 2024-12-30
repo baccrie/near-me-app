@@ -17,7 +17,7 @@
 /* Logo */
 .logo:link,
 .logo:visited {
-  flex-basis: 40%;
+  flex-basis: 35%;
   text-decoration: none;
   border: none;
 
@@ -90,7 +90,7 @@
 }
 /* cta */
 .cta {
-  flex-basis: 40%;
+  flex-basis: 35%;
 
   display: flex;
   align-items: center;
