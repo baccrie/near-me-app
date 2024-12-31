@@ -1,0 +1,45 @@
+.container header {
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.container ul li img {
+  width: 30px;
+  height: 40px;
+
+  margin-bottom: 1rem;
+}
+
+.container ul {
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container ul li {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
+  border-radius: 1.2rem;
+  margin: 8px 0px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  flex-basis: 32%;
+}
+
+.container ul li:hover {
+  transform: translateY(10px);
+  scale: 0.98;
+}
+
+.container ul li h4 {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.container ul li p {
+  font-size: 1.3rem;
+}

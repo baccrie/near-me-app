@@ -12,6 +12,8 @@ import HostLocalePhotos from "./pages/HostLocalePhotos";
 import LocaleDetails from "./pages/LocaleDetails";
 import AboutHost from "./pages/AboutHost";
 import AccountSettings from "./pages/AccountSettings";
+import PersonalInfo from "./pages/PersonalInfo";
+import AccountSettingsIndex from "./pages/AccountSettingsIndex";
 
 function App() {
   return (
@@ -30,7 +32,10 @@ function App() {
             <Route path="about-host" element={<AboutHost />} />
             <Route path="details" element={<LocaleDetails />} />
           </Route>
-          <Route path="account-settings" element={<AccountSettings />} />
+          <Route path="account-settings" element={<AccountSettings />}>
+            <Route index element={<AccountSettingsIndex />} />
+            <Route path="personal-info" element={<PersonalInfo />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
