@@ -29,7 +29,7 @@ const initialState: HostLocaleState = {
   name: "",
   description: "",
   category: "",
-  location: "",
+  location: {},
   host: {
     name: "",
     about: "",

@@ -20,6 +20,8 @@
   border: none;
   outline: none;
   position: relative;
+
+  outline: none;
 }
 
 /* Input for searching address (Keep existing as is) */
@@ -27,7 +29,7 @@
   position: absolute;
   left: 50%;
   top: 30px;
-  padding: 2.2rem;
+  padding: 1.4rem;
   border-radius: 4rem;
   background-color: #fff;
   border: none;

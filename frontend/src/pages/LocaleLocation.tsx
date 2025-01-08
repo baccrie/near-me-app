@@ -16,14 +16,15 @@ import {
 import { useAuth } from "../context/authContext";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { useHostLocale } from "../context/hostLocaleContext";
 
 export default function LocaleLocation() {
   const [isLoading, setIsLoading, navigate] = useFooterNav("amenities");
+  const { updateState } = useHostLocale();
   const location = useLocation();
 
-  const { updateState } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
-  const [coordinates, setCoordinates] = useState(null);
+  const [coordinates, setCoordinates] = useState([51.505, -0.09]);
   const [addressDetails, setAddressDetails] = useState({
     state: "",
     country: "",
@@ -122,6 +123,14 @@ export default function LocaleLocation() {
     getGeolocation();
   }, []);
 
+  // updates the global hostLocale state when address changes
+  useEffect(
+    function () {
+      updateState({ location: addressDetails });
+    },
+    [addressDetails]
+  );
+
   return (
     <>
       <section className={styles.location}>
@@ -142,11 +151,11 @@ export default function LocaleLocation() {
           <div className={styles.map}>
             <MapContainer
               center={coordinates || [51.505, -0.09]} // Default position, fallback
-              zoom={13}
+              zoom={20}
               style={{
                 height: "100%",
                 width: "100%",
-                border: "1px solid red",
+                border: "none",
               }}
               scrollWheelZoom={true} // Make map interactive
               whenCreated={(map) => map.on("click", handleMapClick)} // Listen for map clicks
@@ -168,7 +177,7 @@ export default function LocaleLocation() {
               <DetectClick />
             </MapContainer>
 
-            {isFormVisible && (
+            {
               <div className={styles.formContainer}>
                 <select
                   value={selectedAddress}
@@ -201,7 +210,7 @@ export default function LocaleLocation() {
                   {isLoading ? <Spinner /> : "Submit"}
                 </button>
               </div>
-            )}
+            }
           </div>
         </div>
       </section>
