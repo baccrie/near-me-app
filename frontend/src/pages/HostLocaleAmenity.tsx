@@ -1,6 +1,10 @@
 import styles from "./HostLocaleAmenity.module.css";
 import HostLocaleFooter from "../components/HostLocaleFooter";
+import Spinner from "../components/Spinner";
+import useFooterNav from "../hooks/hostLocaleFooterNav";
+import { useHostLocale } from "../context/hostLocaleContext";
 
+// Amenity icons
 import Kitchen from "../assets/kitchen.svg";
 import Star from "../assets/star.svg";
 import Park from "../assets/park.svg";
@@ -12,16 +16,37 @@ import Wifi from "../assets/wifi.svg";
 import Tv from "../assets/tv.svg";
 import Camera from "../assets/cameras.svg";
 import Alarm from "../assets/alarm.svg";
-import useFooterNav from "../hooks/hostLocaleFooterNav";
-import Spinner from "../components/Spinner";
 
 export default function HostLocaleAmenity() {
   const [isLoading, setIsLoading, navigate] = useFooterNav("about-host");
+  const { amenities: allAmenity, toggleAmenity } = useHostLocale(); // Access state and toggle function from context
+
+  // List of amenities
+  const amenities = [
+    { icon: Ocean, label: "Club" },
+    { icon: Sea, label: "Tech" },
+    { icon: Beach, label: "Electronics" },
+    { icon: Wifi, label: "Cafe" },
+    { icon: Tv, label: "Cinema" },
+    { icon: Ocean, label: "Hotel" },
+    { icon: Park, label: "Restaurant" },
+    { icon: Camera, label: "Spa" },
+    { icon: Alarm, label: "Sport" },
+    { icon: Kitchen, label: "Pet" },
+    { icon: Star, label: "Finances" },
+    { icon: Park, label: "Transport" },
+    { icon: Outdoor, label: "Education" },
+    { icon: Ocean, label: "Fitness" },
+    { icon: Sea, label: "Beachfront" },
+    { icon: Beach, label: "Beachfront" },
+  ];
+
+  // Get currently selected amenities
+  const selectedAmenities = allAmenity.split(",").filter(Boolean);
 
   return (
     <>
       <section className={styles.amenity}>
-        {" "}
         <div className={styles.hostLocaleAmenity}>
           <h2>Tell guests what your locale has to offer</h2>
           <span className={styles.info}>
@@ -31,310 +56,20 @@ export default function HostLocaleAmenity() {
           <div className={styles.favourite}>
             <h3>Check out these favourite amenities</h3>
             <ul>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Club" />
-                  <span>Club</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Sea} alt="Tech" />
-                  <span>Tech</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Beach} alt="Electronics" />
-                  <span>Electronics</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Wifi} alt="Cafe" />
-                  <span>Cafe</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Tv} alt="Cinema" />
-                  <span>Cinema</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Hotel" />
-                  <span>Hotel</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Park} alt="Restaurant" />
-                  <span>Restaurant</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Camera} alt="Spa" />
-                  <span>Spa</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Alarm} alt="Sport" />
-                  <span>Sport</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Kitchen} alt="Pet" />
-                  <span>Pet</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Star} alt="Finances" />
-                  <span>Finances</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Park} alt="Transport" />
-                  <span>Transport</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Outdoor} alt="Education" />
-                  <span>Education</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Fitness" />
-                  <span>Fitness</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Sea} alt="Beachfront" />
-                  <span>Beachfront</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Beach} alt="Beachfront" />
-                  <span>Beachfront</span>
-                </button>
-              </li>
+              {amenities.map((amenity, index) => (
+                <li key={index}>
+                  <button
+                    className={`${styles.btn} ${
+                      selectedAmenities.includes(amenity.label) ? styles.selected : ""
+                    }`}
+                    onClick={() => toggleAmenity(amenity.label)} // Toggle amenity on click
+                  >
+                    <img src={amenity.icon} alt={amenity.label} />
+                    <span>{amenity.label}</span>
+                  </button>
+                </li>
+              ))}
             </ul>
-            ;
-          </div>
-
-          <div className={styles.standout}>
-            <h3>Check out these standout amenities</h3>
-            <ul>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Club" />
-                  <span>Club</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Sea} alt="Tech" />
-                  <span>Tech</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Beach} alt="Electronics" />
-                  <span>Electronics</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Wifi} alt="Cafe" />
-                  <span>Cafe</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Tv} alt="Cinema" />
-                  <span>Cinema</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Hotel" />
-                  <span>Hotel</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Park} alt="Restaurant" />
-                  <span>Restaurant</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Camera} alt="Spa" />
-                  <span>Spa</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Alarm} alt="Sport" />
-                  <span>Sport</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Kitchen} alt="Pet" />
-                  <span>Pet</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Star} alt="Finances" />
-                  <span>Finances</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Park} alt="Transport" />
-                  <span>Transport</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Outdoor} alt="Education" />
-                  <span>Education</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Fitness" />
-                  <span>Fitness</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Sea} alt="Beachfront" />
-                  <span>Beachfront</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Beach} alt="Beachfront" />
-                  <span>Beachfront</span>
-                </button>
-              </li>
-            </ul>
-            ;
-          </div>
-
-          <div className={styles.safety}>
-            <h3>Check out these safety items</h3>
-            <ul>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Club" />
-                  <span>Club</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Sea} alt="Tech" />
-                  <span>Tech</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Beach} alt="Electronics" />
-                  <span>Electronics</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Wifi} alt="Cafe" />
-                  <span>Cafe</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Tv} alt="Cinema" />
-                  <span>Cinema</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Hotel" />
-                  <span>Hotel</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Park} alt="Restaurant" />
-                  <span>Restaurant</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Camera} alt="Spa" />
-                  <span>Spa</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Alarm} alt="Sport" />
-                  <span>Sport</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Kitchen} alt="Pet" />
-                  <span>Pet</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Star} alt="Finances" />
-                  <span>Finances</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Park} alt="Transport" />
-                  <span>Transport</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Outdoor} alt="Education" />
-                  <span>Education</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Ocean} alt="Fitness" />
-                  <span>Fitness</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Sea} alt="Beachfront" />
-                  <span>Beachfront</span>
-                </button>
-              </li>
-              <li>
-                <button className={styles.btn}>
-                  <img src={Beach} alt="Beachfront" />
-                  <span>Beachfront</span>
-                </button>
-              </li>
-            </ul>
-            ;
           </div>
         </div>
       </section>
@@ -350,7 +85,7 @@ export default function HostLocaleAmenity() {
             onClick={() => setIsLoading(true)}
           >
             {isLoading ? <Spinner /> : "Next"}
-          </button>{" "}
+          </button>
         </div>
       </HostLocaleFooter>
     </>

@@ -113,9 +113,12 @@
 }
 
 .submit {
+}
+
+.disable {
   width: 100%;
   padding: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.6rem;
   border: none;
   color: #fff;
@@ -123,6 +126,7 @@
   font-family: inherit;
   margin-bottom: 1rem;
 
+  cursor: pointer;
   background-image: linear-gradient(
     to right,
     rgb(255, 56, 92) 0%,
@@ -131,7 +135,9 @@
     rgb(215, 20, 100) 75%,
     rgb(189, 30, 89) 100%
   );
+  /* background-color: #6a6a6a; */
 }
+
 .container ul {
   list-style-type: none;
   margin-left: 2rem;

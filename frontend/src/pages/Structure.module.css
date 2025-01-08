@@ -46,6 +46,10 @@
   outline: 2px solid #000;
 }
 
+.current {
+  outline: 2px solid #000;
+}
+
 .structure ul li {
   flex-basis: 31%;
   margin-bottom: 0.4rem;

@@ -2,16 +2,20 @@ import HeaderNav from "../components/HeaderNav";
 import MainNav from "../components/MainNav";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
-import LoginAndRegister from "../components/LoginAndRegister";
+import LoginOrProfile from "../components/LoginAndRegister";
 import { useState } from "react";
 
-export default function HomePage() {
-  const [isOpenLogin, setIsOpenLogin] = useState(false);
+export default function HomePage({ isOpenLogin, setIsOpenLogin }) {
+  // const [isOpenLogin, setIsOpenLogin] = useState(false);
 
   return (
     <>
       <header>
-        <HeaderNav isOpenLogin={isOpenLogin} setIsOpenLogin={setIsOpenLogin} />
+        <HeaderNav
+          isOpenLogin={isOpenLogin}
+          setIsOpenLogin={setIsOpenLogin}
+          type={undefined}
+        />
       </header>
 
       <nav>
@@ -26,7 +30,7 @@ export default function HomePage() {
         <Footer />
       </footer>
 
-      <LoginAndRegister
+      <LoginOrProfile
         isOpenLogin={isOpenLogin}
         setIsOpenLogin={setIsOpenLogin}
       />

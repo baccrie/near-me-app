@@ -7,18 +7,28 @@ import Apple from "../assets/apple.svg";
 import Spinner from "./Spinner";
 import Valid from "../assets/valid.svg";
 import Invalid from "../assets/invalid.svg";
+import { useAuth } from "../context/authContext";
+import { GoogleLogin } from "@react-oauth/google";
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initialFormData = {
   username: "",
   email: "",
 };
+
 const baseUrl = "http://localhost:3000/api/v1/auth";
+const regEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const [isLoading, setIsLoading] = useState(true);
-  // const [username, setUsername] = useState("");
+
+  const [isLoadingAuth, setIsLoadingAuth] = useState(false);
+
   const [{ username, email }, setFormData] = useState(initialFormData);
 
   const [{ usernameError, emailError }, setFormError] = useState({
@@ -26,53 +36,90 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
     emailError: "",
   });
 
-  // check details existence and validate
+  // check username existence and validate
   useEffect(
     function () {
-      async function checkExistence({ username, email }) {
-        const res = await fetch(
-          `${baseUrl}/check-existence?username=${username}&email=${email}`
-        );
+      async function checkExistence() {
+        // validate input
+        if (username.length < 5 && username)
+          setFormError((curr) => {
+            return {
+              ...curr,
+              usernameError: "username too short",
+            };
+          });
 
+        // fetch with username
+        const res = await fetch(
+          `${baseUrl}/check-username-existence?username=${username}`
+        );
         const data = await res.json();
-        console.log(data);
 
         if (data.exists === true) {
-          if (data.exists.field === "username") {
-            setFormError((curr) => {
-              return {
-                ...curr,
-                usernameError: "username already exist, try a different one",
-              };
-            });
-          } else {
-            setFormError((curr) => {
-              return {
-                ...curr,
-                emailError: "email already exist , pick a different one",
-              };
-            });
-          }
+          setFormError((curr) => {
+            return { ...curr, usernameError: "username already exist" };
+          });
         }
       }
 
-      if (username.length < 5)
+      if (isOpenLogin) checkExistence();
+
+      return () => {
         setFormError((curr) => {
           return {
             ...curr,
-            usernameError: "username too short",
+            usernameError: "",
           };
-        });
-
-      checkExistence({ username, email });
-      return () => {
-        setFormError({
-          usernameError: "",
-          emailError: "",
         });
       };
     },
-    [username, email]
+    [username]
+  );
+
+  // check email existence and validate
+  useEffect(
+    function () {
+      async function checkExistence() {
+        // validate input
+        if (email.length < 5 && email)
+          setFormError((curr) => {
+            return {
+              ...curr,
+              emailError: "email too short",
+            };
+          });
+
+        // vallidate email
+        if (!regEx.test(email) && email)
+          setFormError((curr) => {
+            return { ...curr, emailError: "Please enter a valid email" };
+          });
+
+        // fetch with email
+        const res = await fetch(
+          `${baseUrl}/check-email-existence?email=${email}`
+        );
+        const data = await res.json();
+
+        if (data.exists === true) {
+          setFormError((curr) => {
+            return { ...curr, emailError: "email already exist" };
+          });
+        }
+      }
+
+      if (isOpenLogin) checkExistence();
+
+      return () => {
+        setFormError((curr) => {
+          return {
+            ...curr,
+            emailError: "",
+          };
+        });
+      };
+    },
+    [email]
   );
 
   // Delay timer
@@ -115,7 +162,10 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
 
   // handle form submission
   async function handleSubmit(e) {
+    setIsLoadingAuth(true);
+
     e.preventDefault();
+
     if (usernameError || emailError) return;
 
     const res = await fetch(`${baseUrl}/register`, {
@@ -124,15 +174,56 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "test",
-        email: "test",
+        username,
+        email,
       }),
     });
 
     const data = await res.json();
-    console.log(data);
+
+    if (data.status === "successful") {
+      login(data.user);
+      setIsOpenLogin(false);
+      navigate("/");
+    }
+
+    if (data.status === "fail") {
+      console.log(data.status);
+      setFormError((curr) => {
+        return {
+          ...curr,
+          usernameError: data.msg,
+        };
+      });
+    }
+
+    if (data.status === "error") {
+      console.log(data.status);
+      setFormError((curr) => {
+        return {
+          ...curr,
+          usernameError: data.msg,
+        };
+      });
+    }
+
+    setIsLoadingAuth(false);
   }
 
+  // handle google oauth login
+  async function sendCredentials(token) {
+    const res = await fetch(`${baseUrl}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token,
+      }),
+    });
+
+    const data = await res.json();
+  }
   return (
     <div className={`${styles.wrapper} ${isOpenLogin ? "" : styles.visible}`}>
       <div className={styles.container}>
@@ -188,16 +279,26 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
 
               <span>Make sure the email is active for confirmation text</span>
               <span style={{ color: "red", fontWeight: "500" }}>
-                {usernameError || emailError || "."}
+                {usernameError || emailError || "\u00A0"}
               </span>
 
-              <button className={styles.submit}>Continue</button>
+              <button className={`${styles.disable}`}>
+                {isLoading ? <Spinner /> : "continue"}
+              </button>
             </form>
 
             <ul>
               <li>
                 <img src={Google} />
                 <span>Continue with Google</span>
+                <GoogleLogin
+                  onSuccess={sendCredentials}
+                  onError={(error) =>
+                    setFormError((curr) => {
+                      return { ...curr, usernameError: error };
+                    })
+                  }
+                />
               </li>
 
               <li>

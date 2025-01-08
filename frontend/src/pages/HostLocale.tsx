@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
 import styles from "./HostLocale.module.css";
 import Logo from "../assets/logo.svg";
+import { HostLocaleProvider } from "../context/hostLocaleContext";
 
 export default function HostLocale() {
   return (
-    <main className={styles.hostLocale}>
+    <HostLocaleProvider>
+      <main className={styles.hostLocale}>
       <section className={styles.hostLocaleHeader}>
         <img src={Logo} />
 
@@ -15,5 +17,7 @@ export default function HostLocale() {
       </section>
       <Outlet />
     </main>
+    </HostLocaleProvider>
+    
   );
 }

@@ -80,40 +80,40 @@ const LocaleSchema = new Schema({
     ref: 'Amenity',
   },
 
-  status: {
-    type: [
-      {
-        day: {
-          type: String,
-          enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-          required: true,
-        },
-        openTime: {
-          type: String, 
-          required: true,
-        },
-        closeTime: {
-          type: String, 
-          required: true,
-        },
-        isOpen: {
-          type: Boolean,
-          default: true, 
-        },
-      },
-    ],
+  // status: {
+  //   type: [
+  //     {
+  //       day: {
+  //         type: String,
+  //         enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  //         required: true,
+  //       },
+  //       openTime: {
+  //         type: String, 
+  //         required: true,
+  //       },
+  //       closeTime: {
+  //         type: String, 
+  //         required: true,
+  //       },
+  //       isOpen: {
+  //         type: Boolean,
+  //         default: true, 
+  //       },
+  //     },
+  //   ],
 
-    required: true,
-    default: [
-      { day: 'Monday', openTime: '08:00', closeTime: '18:00' },
-      { day: 'Tuesday', openTime: '08:00', closeTime: '18:00' },
-      { day: 'Wednesday', openTime: '08:00', closeTime: '18:00' },
-      { day: 'Thursday', openTime: '08:00', closeTime: '18:00' },
-      { day: 'Friday', openTime: '08:00', closeTime: '18:00' },
-      { day: 'Saturday', openTime: '10:00', closeTime: '14:00' },
-      { day: 'Sunday', openTime: 'Closed', closeTime: 'Closed', isOpen: false },
-    ], 
-  },
+  //   required: true,
+  //   default: [
+  //     { day: 'Monday', openTime: '08:00', closeTime: '18:00' },
+  //     { day: 'Tuesday', openTime: '08:00', closeTime: '18:00' },
+  //     { day: 'Wednesday', openTime: '08:00', closeTime: '18:00' },
+  //     { day: 'Thursday', openTime: '08:00', closeTime: '18:00' },
+  //     { day: 'Friday', openTime: '08:00', closeTime: '18:00' },
+  //     { day: 'Saturday', openTime: '10:00', closeTime: '14:00' },
+  //     { day: 'Sunday', openTime: 'Closed', closeTime: 'Closed', isOpen: false },
+  //   ], 
+  // },
 
   createdAt: {
     type: Date,

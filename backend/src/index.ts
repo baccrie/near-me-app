@@ -51,6 +51,7 @@ const startApp = async () => {
   await connectDB( `${process.env.URL}`)
   await mongoose.connection.dropDatabase();
   await User.create({username: 'baccrie', email: 'test@gmail.com'});
+  console.log('db connect success...')
   app.listen(process.env.PORT, ()=> console.log(`app is listening to port ${PORT}`))
   } catch(err) {
     console.log(err)

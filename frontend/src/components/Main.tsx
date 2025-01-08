@@ -1,10 +1,16 @@
 import styles from "./Main.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Main() {
+  const navigate = useNavigate();
+
   return (
     <>
       <section className={styles.buisness}>
-        <div className={styles.buisnessCard}>
+        <div
+          className={styles.buisnessCard}
+          onClick={() => navigate("/locale/45")}
+        >
           <div className={styles.imgContainer}>
             <img src="https://a0.muscache.com/im/pictures/miso/Hosting-977994569481876996/original/47b633c3-d776-40e6-b284-04d3fb1e3bf2.jpeg?im_w=1200&im_format=avif" />
           </div>
