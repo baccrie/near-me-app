@@ -10,7 +10,7 @@ interface HostLocaleState {
     about: string;
     image: string;
   };
-  amenities: string;
+  amenities: string[];
   gallery: {
     image1: string;
     image2: string;
@@ -22,20 +22,20 @@ interface HostLocaleState {
 
 interface Action {
   type: string;
-  payload?: Partial<HostLocaleState>;
+  payload?: Partial<HostLocaleState> | string;
 }
 
 const initialState: HostLocaleState = {
   name: "",
   description: "",
   category: "",
-  location: {},
+  location: "", // Fixed: Changed from {} to an empty string
   host: {
     name: "",
     about: "",
     image: "",
   },
-  amenities: "",
+  amenities: [],
   gallery: {
     image1: "",
     image2: "",
@@ -57,19 +57,17 @@ const reducer = (state: HostLocaleState, action: Action): HostLocaleState => {
 
   switch (type) {
     case "updateState":
-      return { ...state, ...payload };
+      return { ...state, ...(payload as Partial<HostLocaleState>) };
 
     case "toggleAmenity": {
-      if (!payload?.amenities) return state;
-
-      const amenity = payload.amenities;
-      const amenitiesArray = state.amenities.split(",").filter(Boolean);
+      const amenity = payload as string; // Ensure payload is treated as a string
+      const isPresent = state.amenities.includes(amenity);
 
       return {
         ...state,
-        amenities: amenitiesArray.includes(amenity)
-          ? amenitiesArray.filter((a) => a !== amenity).join(",")
-          : [...amenitiesArray, amenity].join(","),
+        amenities: isPresent
+          ? state.amenities.filter((item) => item !== amenity) // Remove if exists
+          : [...state.amenities, amenity], // Add if not exists
       };
     }
 
@@ -86,7 +84,7 @@ function HostLocaleProvider({ children }: { children: ReactNode }) {
   }
 
   function toggleAmenity(amenity: string) {
-    dispatch({ type: "toggleAmenity", payload: { amenities: amenity } });
+    dispatch({ type: "toggleAmenity", payload: amenity });
   }
 
   return (

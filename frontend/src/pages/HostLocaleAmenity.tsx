@@ -18,8 +18,9 @@ import Camera from "../assets/cameras.svg";
 import Alarm from "../assets/alarm.svg";
 
 export default function HostLocaleAmenity() {
-  const [isLoading, setIsLoading, navigate] = useFooterNav("about-host");
-  const { amenities: allAmenity, toggleAmenity } = useHostLocale(); // Access state and toggle function from context
+  const [isLoading, setIsLoading, navigate] = useFooterNav("photos");
+  const state = useHostLocale();
+  console.log(state.state.amenities);
 
   // List of amenities
   const amenities = [
@@ -41,9 +42,6 @@ export default function HostLocaleAmenity() {
     { icon: Beach, label: "Beachfront" },
   ];
 
-  // Get currently selected amenities
-  const selectedAmenities = allAmenity.split(",").filter(Boolean);
-
   return (
     <>
       <section className={styles.amenity}>
@@ -60,9 +58,11 @@ export default function HostLocaleAmenity() {
                 <li key={index}>
                   <button
                     className={`${styles.btn} ${
-                      selectedAmenities.includes(amenity.label) ? styles.selected : ""
+                      state.state.amenities.includes(amenity.label)
+                        ? styles.selected
+                        : ""
                     }`}
-                    onClick={() => toggleAmenity(amenity.label)} // Toggle amenity on click
+                    onClick={() => state.toggleAmenity(amenity.label)} // Toggle amenity on click
                   >
                     <img src={amenity.icon} alt={amenity.label} />
                     <span>{amenity.label}</span>

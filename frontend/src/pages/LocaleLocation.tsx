@@ -94,13 +94,6 @@ export default function LocaleLocation() {
     }
   };
 
-  // Function to handle map click and show address/landmark form
-  // const handleMapClick = (e) => {
-  //   setCoordinates([lat, lng]);
-  //   fetchLocationDetails(lat, lng); // Fetch the details when the map is clicked
-  //   setIsFormVisible(true); // Show the form when the map is clicked
-  // };
-
   // Handle form submission
   const handleSubmit = () => {
     if (selectedAddress && landmark) {
@@ -226,6 +219,7 @@ export default function LocaleLocation() {
             onClick={() => {
               setIsLoading(true);
               updateState(addressDetails);
+              navigate("/host-your-locale/amenities");
             }}
           >
             {isLoading ? <Spinner /> : "Next"}

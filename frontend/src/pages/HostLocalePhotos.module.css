@@ -117,3 +117,50 @@
 .next:hover {
   opacity: 0.8;
 }
+
+.dropzone {
+  border: 1px dashed #6a6a6a;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.activeDropzone {
+  background-color: #e0f7fa;
+  border-color: #00bcd4;
+}
+
+.dropContent {
+  color: #6a6a6a;
+  font-size: 1.2rem;
+}
+
+.cloudIcon {
+  font-size: 2.5rem;
+  color: #6a6a6a;
+  margin-bottom: 1rem;
+}
+
+.browseButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6a6a6a;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.browseButton:hover {
+  background-color: #555555;
+}
