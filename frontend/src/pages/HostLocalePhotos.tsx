@@ -2,37 +2,50 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import HostLocaleFooter from "../components/HostLocaleFooter";
 import styles from "./HostLocalePhotos.module.css";
+import { useNavigate } from "react-router-dom";
+import useFooterNav from "../hooks/hostLocaleFooterNav";
 import { BsCloudUpload } from "react-icons/bs";
-import axios from "axios";
+import { useHostLocale } from "../context/hostLocaleContext";
 
 export default function HostLocalePhotos() {
-  const [imagePreviews, setImagePreviews] = useState<(string | undefined)[]>([
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-  ]);
-  const [imageFiles, setImageFiles] = useState<(File | undefined)[]>([
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-  ]);
+  const { updateState } = useHostLocale(); // Access updateState function from context
+  const [isLoading, setIsLoading, navigate] = useFooterNav("photos");
+  const [imagePreviews, setImagePreviews] = useState<(string | undefined)[]>(
+    Array(5).fill(undefined)
+  );
+  const [imageFiles, setImageFiles] = useState<(File | undefined)[]>(
+    Array(5).fill(undefined)
+  );
 
   // Handle file drop and update both preview and file state
   const handleDrop = (index: number, acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
+
+    // Validate file type and size
+    if (
+      !file ||
+      !["image/jpeg", "image/png", "image/gif"].includes(file.type)
+    ) {
+      alert("Invalid file type. Please upload JPEG, PNG, or GIF images.");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File size must not exceed 5MB.");
+      return;
+    }
+
+    // Update state with valid file
     const updatedPreviews = [...imagePreviews];
     const updatedFiles = [...imageFiles];
 
-    updatedPreviews[index] = URL.createObjectURL(file); // for preview
-    updatedFiles[index] = file; // for upload
+    updatedPreviews[index] = URL.createObjectURL(file);
+    updatedFiles[index] = file;
+
     setImagePreviews(updatedPreviews);
     setImageFiles(updatedFiles);
   };
 
+  // Generate dropzone props for each slot
   const dropzoneProps = imagePreviews.map((_, index) =>
     useDropzone({
       accept: "image/*",
@@ -61,31 +74,51 @@ export default function HostLocalePhotos() {
     );
   };
 
-  // Handle the "Next" button click event to upload images
+  // Handle Next Button Click
   const handleNextClick = async () => {
     const formData = new FormData();
 
-    // Append each file to the FormData
+    // Filter and append valid files
     imageFiles.forEach((file, index) => {
       if (file) {
         formData.append(`image_${index + 1}`, file);
       }
     });
 
-    try {
-      // Send the FormData to your backend API
-      const response = await axios.post("/api/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+    // Ensure at least 5 images are selected
+    if (imageFiles.filter(Boolean).length < 5) {
+      alert("Please upload at least 5 images.");
+      return;
+    }
 
-      if (response.status === 200) {
-        console.log("Images uploaded successfully");
-        // Navigate to the next page
+    try {
+      // Upload images and collect paths
+      const uploadedImagePaths: string[] = [];
+      for (const file of imageFiles) {
+        if (file) {
+          const { path } = await uploadImage(file); // Assuming backend returns a path
+          uploadedImagePaths.push(path); // Collect image paths from response
+        }
       }
+
+      // Update the gallery state with the uploaded paths
+      if (uploadedImagePaths.length === 5) {
+        updateState({
+          gallery: {
+            image1: uploadedImagePaths[0],
+            image2: uploadedImagePaths[1],
+            image3: uploadedImagePaths[2],
+            image4: uploadedImagePaths[3],
+            image5: uploadedImagePaths[4],
+          },
+        });
+      }
+
+      // Navigate to the next page
+      navigate("/host-your-locale/about-host"); // Adjust route as needed
     } catch (error) {
       console.error("Error uploading images:", error);
+      alert("Failed to upload images. Please try again.");
     }
   };
 
@@ -96,7 +129,6 @@ export default function HostLocalePhotos() {
           <h3>Choose at least 5 photos</h3>
           <div className={styles.photosDrag}>
             <span>Drag to reorder</span>
-            <span className={styles.drag}>+</span>
           </div>
 
           <div className={styles.photoContainer}>
@@ -144,3 +176,32 @@ export default function HostLocalePhotos() {
     </>
   );
 }
+
+const uploadImage = async (file: string | Blob) => {
+  if (!file) {
+    alert("Please select a file!");
+    return;
+  }
+
+  const formData = new FormData(); // Create FormData object
+  formData.append("image", file); // Append the file to the form data
+
+  try {
+    const response = await fetch(
+      "http://localhost:3000/api/v1/upload-locale-images",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Bad Response");
+    }
+
+    const result = await response.json(); // Assuming the backend returns a JSON response
+    return result;
+  } catch (error) {
+    console.error("Error uploading image:", error);
+  }
+};

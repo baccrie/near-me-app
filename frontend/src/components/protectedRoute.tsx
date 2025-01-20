@@ -8,18 +8,17 @@ function ProtectedRoute({ setIsOpenLogin, children }) {
 
   console.log(isAuthenticated);
 
-  // useEffect(() => {
-  //   if (!isAuthenticated) {
-  //     navigate("/");
-  //     if (setIsOpenLogin) {
-  //       setIsOpenLogin(true); // Optional: Opens login modal if provided
-  //     }
-  //   }
-  // }, [isAuthenticated, navigate, setIsOpenLogin]);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/");
+      if (setIsOpenLogin) {
+        setIsOpenLogin(true); // Optional: Opens login modal if provided
+      }
+    }
+  }, [isAuthenticated, navigate, setIsOpenLogin]);
 
   // Render children if authenticated; otherwise, null (navigation already handled)
-  // return isAuthenticated ? children : null;
-  return children;
+  return isAuthenticated ? children : null;
 }
 
 export default ProtectedRoute;

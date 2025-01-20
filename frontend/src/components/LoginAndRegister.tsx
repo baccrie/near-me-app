@@ -4,7 +4,7 @@ import Google from "../assets/google.svg";
 import Facebook from "../assets/facebook.svg";
 import Email from "../assets/email.svg";
 import Apple from "../assets/apple.svg";
-import Spinner from "./Spinner";
+import Spinner from "./SpinnerRed";
 import Valid from "../assets/valid.svg";
 import Invalid from "../assets/invalid.svg";
 import { useAuth } from "../context/authContext";
@@ -291,14 +291,14 @@ export default function LoginAndRegister({ isOpenLogin, setIsOpenLogin }) {
               <li>
                 <img src={Google} />
                 <span>Continue with Google</span>
-                <GoogleLogin
+                {/* <GoogleLogin
                   onSuccess={sendCredentials}
                   onError={(error) =>
                     setFormError((curr) => {
                       return { ...curr, usernameError: error };
                     })
                   }
-                />
+                /> */}
               </li>
 
               <li>

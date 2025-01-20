@@ -8,14 +8,16 @@ import Preference from "../assets/global.svg";
 import Travel from "../assets/travel.svg";
 import Referral from "../assets/referral.svg";
 import styles from "./AccountSettingsIndex.module.css";
+import { useAuth } from "../context/authContext";
 
 export default function AccountSettingsIndex() {
+  const { user } = useAuth();
   return (
     <>
       <div className={styles.container}>
         <header>
           <h1>Account</h1>
-          <h3>Rilwan Bakare, baccrie88@gmail.com</h3>
+          <h3>R{`${user.username || ""}, ${user.email}`}</h3>
         </header>
 
         <div className={styles.accSetting}>

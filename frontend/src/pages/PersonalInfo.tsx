@@ -3,8 +3,11 @@ import Next from "../assets/next.svg";
 import Privacy1 from "../assets/Privacy1.svg";
 import Privacy2 from "../assets/Privacy2.svg";
 import Privacy3 from "../assets/Privacy3.svg";
+import { useAuth } from "../context/authContext";
 
 export default function PersonalInfo() {
+  const { user } = useAuth();
+
   return (
     <div className={styles.container}>
       <header>

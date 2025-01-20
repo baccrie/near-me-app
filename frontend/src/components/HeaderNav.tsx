@@ -9,7 +9,7 @@ import { useAuth } from "../context/authContext";
 export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
   const [isOpenCta, setIsOpenCta] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
 
   useEffect(
     function () {
@@ -90,29 +90,40 @@ export default function HeaderNav({ isOpenLogin, setIsOpenLogin, type }) {
                 </li>
               </>
             ) : (
-              <>
-                <li
-                  onClick={() => {
-                    setIsOpenLogin(true);
-                    setIsOpenCta(false);
-                  }}
-                >
-                  Sign up
-                </li>
-                <li
-                  onClick={() => {
-                    setIsOpenLogin(true);
-                    setIsOpenCta(false);
-                  }}
-                >
-                  Login
-                </li>
-                <li>Forgot password</li>
-              </>
+              !isAuthenticated && (
+                <>
+                  <li
+                    onClick={() => {
+                      setIsOpenLogin(true);
+                      setIsOpenCta(false);
+                    }}
+                  >
+                    Sign up
+                  </li>
+                  <li
+                    onClick={() => {
+                      setIsOpenLogin(true);
+                      setIsOpenCta(false);
+                    }}
+                  >
+                    Login
+                  </li>
+                  <li>Forgot password</li>
+                </>
+              )
             )}
             <li>Near me ur org</li>
             <li>Help center</li>
             <li>lock acc</li>
+            {isAuthenticated && (
+              <li
+                onClick={() => {
+                  logout();
+                }}
+              >
+                logout
+              </li>
+            )}
           </ul>
         </div>
       )}

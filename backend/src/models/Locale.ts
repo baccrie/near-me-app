@@ -75,10 +75,19 @@ const LocaleSchema = new Schema({
     type: String,
   },
 
-  amenities: {
-    type: [Types.ObjectId],
-    ref: 'Amenity',
+  // amenities: {
+  //   type: [Types.ObjectId],
+  //   ref: 'Amenity',
+  // },
+
+ amenities: {
+    type: [String],
   },
+
+  user: {
+    type: Types.ObjectId,
+    ref: 'User',
+  }
 
   // status: {
   //   type: [
