@@ -114,13 +114,12 @@ cd near-me-app
    ```
 3. Create a `.env` file and add your environment variables:
    ```bash
-   PORT=5000
+   PORT=3000
    MONGO_URI=your_mongo_connection_string
-   JWT_SECRET=your_jwt_secret
    ```
 4. Start the server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ### **Setup Frontend**
@@ -135,10 +134,10 @@ cd near-me-app
    ```
 3. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
-The app will be running at `http://localhost:3000` for the frontend and `http://localhost:5000` for the backend.
+The app will be running at `http://localhost:5173` for the frontend and `http://localhost:3000` for the backend.
 
 ---
 
